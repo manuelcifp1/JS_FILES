@@ -19,5 +19,5 @@ Math.random();/*Número aleatorio entre 0 y 0.999... Si hacemos esto: Math.rando
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-console.log(rand(1, 10)); // Funciona igual que PHP
+console.log(rand(1, 10));
 
