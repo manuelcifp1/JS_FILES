@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Es un número?</title>
+</head>
+<body>
+    <script>      
+
+       function esUnNumero() {
+                let numeroUsuario = prompt("Dame un número");
+                if (isNaN(numeroUsuario)) {
+                alert("Esto no es un número");
+                esUnNumero();            
+            } else {
+                alert("Esto si es un número");
+            }
+       }
+
+       esUnNumero();
+
+    </script>
+    
+</body>
+</html>
