@@ -13,11 +13,11 @@ nos dará true si la expresión no es numérica.*/
 
 Math.random();/*Número aleatorio entre 0 y 0.999... Si hacemos esto: Math.random()*2;
  nos daría un número entre 0 y 1.999..., pero si le sumamos 1: Math.random()*2 + 1; 
- tendríamos un número entre 1 y 2.999... Con esta función podemos abarcar el rango que
-  queramos:*/
-  function rand(min, max) {
+ tendríamos un número entre 1 y 2.999... 
+ Con esta función podemos abarcar el rango que queramos:*/
+  function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-console.log(rand(1, 10));
+console.log(aleatorio(1, 10));
 
