@@ -1,0 +1,10 @@
+table {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    border: 3px black solid;
+    background-color: aqua;    
+}
+
+table td {
+    border: red solid 2px;
+}
