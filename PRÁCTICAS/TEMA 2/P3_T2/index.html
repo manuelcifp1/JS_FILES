@@ -8,18 +8,36 @@
     <meta name="keywords" content="js, tatata">
     <title>Fondo aleatorio</title>
 </head>
-<body>
-    <div id="fondoColor"></div>
-    <script>
+<body>    
+    <script>      
 
+        function rojoAleatorio() {            
+            return Math.floor(Math.random() * (255 - 0 + 1)); 
+        } 
+
+        function verdeAleatorio() {
+            return Math.floor(Math.random() * (255 - 0 + 1)); 
+        } 
+
+        function azulAleatorio() {
+            return Math.floor(Math.random() * (255 - 0 + 1)); 
+        }
+        
+        let rojo = rojoAleatorio();
+        let verde = verdeAleatorio();
+        let azul = azulAleatorio();
+        
+        document.write('<div id="fondoColor" style="background-color: rgb(' + rojo +',' + verde + ',' + azul + ')"></div>');        
     </script>
+    
     <style>
-       div {
+       #fondoColor {
         width: 100vw;
         height: 100vh;
         position: fixed;
+        left: 0px;
+        top: 0px;
        }
-    </style>
-    
+    </style>    
 </body>
 </html>
