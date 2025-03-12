@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Manuel Alba">
+    <meta name="description" content="Crea una aplicación web que solicite, mediante cuadros de lectura de datos: el nombre, los apellidos, el salario (número con decimales) y la edad de una persona (un número).">
+    <meta name="keywords" content="javascript, datos personales">
+    <title>Decisiones</title>
+</head>
+<body>
+    <script>
+        let nombre = prompt("Dime tu nombre");
+        let apellidos = prompt("Dime tus apellidos");
+        let salario = Number(prompt("Dime tu salario"));
+        let edad = Number(prompt("Dime tu edad"));
+        let salarioNeto;
+
+        if (salario < 1000) {
+            switch (edad) {
+                case (edad < 30):
+                salarioNeto = 1100;
+                document.write("<h2>Nombre: " + nombre + ", Apellidos: " + apellidos + ", Edad: " + edad + ", Salario Neto: " + salarioNeto + "</h2>");
+                break;
+
+                case (edad <= 45):
+                salarioNeto = salario + (salario * 0.03);
+                document.write("<h2>Nombre: " + nombre + ", Apellidos: " + apellidos + ", Edad: " + edad + ", Salario Neto: " + salarioNeto + "</h2>");
+                break;
+
+                default:
+                salarioNeto = salario + (salario * 0.15);
+                document.write("<h2>Nombre: " + nombre + ", Apellidos: " + apellidos + ", Edad: " + edad + ", Salario Neto: " + salarioNeto + "</h2>");
+                break;
+            }
+            
+        } else if (salario <= 2000) {
+            switch (edad) {
+                case (edad <= 45):
+                salarioNeto = salario + (salario * 0.1);
+                document.write("<h2>Nombre: " + nombre + ", Apellidos: " + apellidos + ", Edad: " + edad + ", Salario Neto: " + salarioNeto + "</h2>");
+                break;
+                
+                default:
+                salarioNeto = salario + (salario * 0.03);
+                document.write("<h2>Nombre: " + nombre + ", Apellidos: " + apellidos + ", Edad: " + edad + ", Salario Neto: " + salarioNeto + "</h2>");
+                break;    
+            }
+        } 
+        
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
