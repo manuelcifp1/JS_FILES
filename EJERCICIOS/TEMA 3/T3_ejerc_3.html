@@ -9,13 +9,17 @@
     <script>
         let dniUsuario = prompt("Dime un DNI");
         let numeroDni = dniUsuario.slice(0, 8);
-        console.log(numeroDni);
-
-        function comprobarLetraDni(dniSinLetra) {
-            let letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-            let pos = dniSinLetra % 23;
-            return 
-        }
+        let letraDniUsuario = dniUsuario.slice(8, 10);
+        letraDniUsuario = letraDniUsuario.toUpperCase();       
+        let letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+        let pos = numeroDni % 23;
+        let letraDni = letras.charAt(pos);
+        console.log(letraDni);                
+        if (letraDniUsuario == letraDni) {
+            alert("La letra es correcta");
+        } else {
+            alert("La letra es incorrecta");
+        }        
     </script>
     
 </body>
