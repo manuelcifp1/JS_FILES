@@ -11,32 +11,32 @@
 <body>
     <script>
         function rojoAleatorio() {            
-            return Math.floor(Math.random() * (255 - 0 + 1)); 
+            return Math.floor(Math.random() * 256); 
         } 
 
         function verdeAleatorio() {
-            return Math.floor(Math.random() * (255 - 0 + 1)); 
+            return Math.floor(Math.random() * 256); 
         } 
 
         function azulAleatorio() {
-            return Math.floor(Math.random() * (255 - 0 + 1)); 
+            return Math.floor(Math.random() * 256); 
         }
 
         function topAleatorio() {
-           $resultado = Math.floor(Math.random(101));
-           return $resultadoTop;
+           return Math.floor(Math.random() * 101);
+           
         }
 
         function leftAleatorio() {
-           $resultado = Math.floor(Math.random(101));
-           return $resultadoLeft;
+           return Math.floor(Math.random() * 101);
+           
         }
         
         let rojo = rojoAleatorio();
         let verde = verdeAleatorio();
         let azul = azulAleatorio();
-        let top = $resultadoTop();
-        let left = $resultadoLeft();
+        let top = topAleatorio();
+        let left = leftAleatorio();
 
         for (let i = 0; i <= 2000; i++) {
             document.write('<div id="cuadrado" style="background-color: rgb(' + rojo +',' + verde + ',' + azul + '); position: fixed; top: ' + top + '%; left: ' + left + '%;"></div>');            
