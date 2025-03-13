@@ -23,13 +23,11 @@
         }
 
         function topAleatorio() {
-           return Math.floor(Math.random() * 101);
-           
+           return Math.floor(Math.random() * 101);           
         }
 
         function leftAleatorio() {
-           return Math.floor(Math.random() * 101);
-           
+           return Math.floor(Math.random() * 101);           
         }
         
         let rojo = rojoAleatorio();
@@ -39,14 +37,9 @@
         let left = leftAleatorio();
 
         for (let i = 0; i <= 2000; i++) {
-            document.write('<div id="cuadrado" style="background-color: rgb(' + rojo +',' + verde + ',' + azul + '); position: fixed; top: ' + top + '%; left: ' + left + '%;"></div>');            
+            document.write('<div style="width: 50px; height: 50px; background-color: rgb(' + rojo +',' + verde + ',' + azul + '); position: fixed; top: ' + top + '%; left: ' + left + '%;"></div>');            
         }
     </script>
-    <style>
-        #cuadrado {
-            width: 50px;
-            aspect-ratio: 1 / 1;            
-        }
-    </style>    
+      
 </body>
 </html>
