@@ -10,36 +10,23 @@
 </head>
 <body>
     <script>
-        function rojoAleatorio() {            
+        function randomColor() {
             return Math.floor(Math.random() * 256); 
         } 
 
-        function verdeAleatorio() {
-            return Math.floor(Math.random() * 256); 
-        } 
-
-        function azulAleatorio() {
-            return Math.floor(Math.random() * 256); 
-        }
-
-        function topAleatorio() {
-           return Math.floor(Math.random() * 101);           
-        }
-
-        function leftAleatorio() {
-           return Math.floor(Math.random() * 101);           
+        function randomPosition() {
+           return Math.random() * 100; // Valor entre 0 y 100%
         }
         
-        let rojo = rojoAleatorio();
-        let verde = verdeAleatorio();
-        let azul = azulAleatorio();
-        let top = topAleatorio();
-        let left = leftAleatorio();
+        for (let i = 0; i < 2000; i++) {  // De 0 a 1999 (2000 cuadrados)
+            let rojo = randomColor();
+            let verde = randomColor();
+            let azul = randomColor();
+            let top = randomPosition();
+            let left = randomPosition();
 
-        for (let i = 0; i <= 2000; i++) {
-            document.write('<div style="width: 50px; height: 50px; background-color: rgb(' + rojo +',' + verde + ',' + azul + '); position: fixed; top: ' + top + '%; left: ' + left + '%;"></div>');            
+            document.write('<div style="width: 50px; height: 50px; background-color: rgb(' + rojo + ',' + verde + ',' + azul + '); position: fixed; top: ' + top + '%; left: ' + left + '%;"></div>');            
         }
     </script>
-      
 </body>
 </html>
