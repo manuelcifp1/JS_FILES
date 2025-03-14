@@ -9,46 +9,52 @@ function numeroAleatorio() {
 }
 
 //Asignamos a una variable la llamada de la función anterior.
-let numeroAleatorio = numeroAleatorio();
+let returnAleatorio = numeroAleatorio();
 
 //Creamos otra función para la mecánica del juego.
-function empezarJuego(numeroAleatorio) {    
+function empezarJuego() {    
 
     let numeroUsuario = prompt("Dame un numero entre 1 y 1000");
-    intentos++;
+    if (numeroUsuario == null) {
+        alert("El juego se ha cancelado.");
+    } else {
+        intentos++;
     numeroUsuario = Number(numeroUsuario);    
 
     if (numeroUsuario < 0) {
         alert("No puede ser menor que 0.");        
-        empezarJuego();
+        return empezarJuego();
     } else if(numeroUsuario > 1000) {
         alert("No puede ser mayor que 1000.");        
-        empezarJuego();
+        return empezarJuego();
     } else if (isNaN(numeroUsuario)) {
         alert("Eso no es un número.");        
-        empezarJuego();
-    } else if (numeroUsuario == null){
-        alert("El juego se ha cancelado.");        
+        return empezarJuego();
     } else {
-        if (numeroUsuario == numeroAleatorio) {            
+        if (numeroUsuario == returnAleatorio) {            
             document.write("<h2>¡Enhorabuena! Lo has adivinado en " + intentos + "intentos.</h2>");
             let jugarDeNuevo = confirm("¿Quieres jugar de nuevo?");
             if (jugarDeNuevo) {
                 intentos = 0;
+                returnAleatorio = numeroAleatorio();
                 empezarJuego();
             } else {
-                alert("El juego se ha cancelado");
+                document.write("<h2>El juego se ha cancelado.</h2>");
             }
-        } else if (numeroUsuario > numeroAleatorio) {            
+        } else if (numeroUsuario > returnAleatorio) {            
             alert("El número a adivinar es menor.");
-            empezarJuego();
-        } else {            
+            return empezarJuego();
+        } else if (numeroUsuario < returnAleatorio) {            
             alert("El número a adivinar es mayor.");
-            empezarJuego();
+            return empezarJuego();
         }
     }
+    }
+    
 
 }
+
+
 
 
 
