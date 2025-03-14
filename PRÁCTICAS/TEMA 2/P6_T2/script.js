@@ -36,6 +36,8 @@ function empezarJuego(numeroAleatorio) {
             if (jugarDeNuevo) {
                 intentos = 0;
                 empezarJuego();
+            } else {
+                alert("El juego se ha cancelado");
             }
         } else if (numeroUsuario > numeroAleatorio) {            
             alert("El número a adivinar es menor.");
