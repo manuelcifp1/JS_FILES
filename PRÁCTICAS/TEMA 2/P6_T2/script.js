@@ -34,13 +34,13 @@ function empezarJuego() {
         if (numeroUsuario == returnAleatorio) {            
             document.write("<h2>¡Enhorabuena! Lo has adivinado en " + intentos + "intentos.</h2>");
             let jugarDeNuevo = confirm("¿Quieres jugar de nuevo?");
-            if (jugarDeNuevo) {
-                intentos = 0;
-                returnAleatorio = numeroAleatorio();
-                empezarJuego();
-            } else {
-                document.write("<h2>El juego se ha cancelado.</h2>");
-            }
+        if (jugarDeNuevo) {
+            intentos = 0;
+            returnAleatorio = numeroAleatorio();
+            empezarJuego();
+        } else {
+            document.write("<h2>El juego se ha cancelado.</h2>");
+        }
         } else if (numeroUsuario > returnAleatorio) {            
             alert("El número a adivinar es menor.");
             return empezarJuego();
@@ -48,10 +48,8 @@ function empezarJuego() {
             alert("El número a adivinar es mayor.");
             return empezarJuego();
         }
+      }    
     }
-    }
-    
-
 }
 
 
