@@ -18,8 +18,8 @@ function jugarDni() {
         dniUsuario = dniUsuario.replace(" ", "");
         dniUsuario = dniUsuario.toUpperCase();
 
-        arrayDniUsuario = dniUsuario.split("");
-        cantidadElementos = arrayDniUsuario.length;
+        
+        cantidadElementos = dniUsuario.length;
         
         if (cantidadElementos != 9) {
             alert("Debe tener 9 caracteres.");
@@ -36,7 +36,7 @@ function jugarDni() {
         } else  {
             setTimeout(() => {
                 document.write("<h2>El DNI no es correcto</h2>");
-            }, 500);
+            }, 100);
             jugarDni();
         }
             
