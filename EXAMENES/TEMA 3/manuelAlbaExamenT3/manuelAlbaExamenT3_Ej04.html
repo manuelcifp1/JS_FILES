@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Definimos una variable con un array vacío
+        let arrayRefranes= [];
+
+        //Creamos un función para validar el input que, si no coincide con la regEx, llama a la función de introducir refranes
+        function validar(refran) {
+
+            let regEx= /[a-zA-Z\s,;\.:]{20,}/;
+            let testeo= regEx.text(refran);
+            if (!testeo) {
+                introduceRefranes();
+                
+            }
+        }
+
+        //Creamos una función que solicita al usuario refranes y los almacena en el array anterior
+        function introduceRefranes() {
+
+            let refran= prompt("Introduce un refrán");
+            arrayRefranes= arrayRefranes.push(refran);
+        }
+
+        //Creamos una función que muestra un refrán aleatoriamente
+        function muestraRefrán() {
+            //Establecemos el número de refranes que hay
+            let maxNum= arrayRefranes.length;
+            //Conseguimos un refrán aleatorio
+            let refranAleatorio= arrayRefranes[Math.floor(Math.random()* maxNum)]; 
+            
+            document.write("<h2>" + refranAleatorio + "</h2>");
+        }
+
+
+        do {
+            introduceRefranes();
+            validar(refran);
+
+        } while (refran == "" );
+
+        //Establecemos que la función de mostrar refrán se active cada 2 segundos
+        setInterval(muestraRefrán(), 2000);
+    </script>
+    
+</body>
+</html>
