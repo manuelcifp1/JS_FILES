@@ -1,10 +1,16 @@
+/*Crea una función en JavaScript que convierta una cadena de texto en un estilo "Cani", aplicando las siguientes reglas:
+
+- Alternar entre mayúsculas y minúsculas en los caracteres de la cadena.
+- Convertir las letras "c" en "k" y viceversa.
+- Si la última letra de la cadena es una vocal, añadir "HHH" al final del texto. */
+
 let cadena= "una cadena cani es como esta";
 
 function toCani(cadena) {
     //convertimos la cadena en array separando por caracteres
     let arrayCani= cadena.split("");
 
-    for (x in arrayCani) {
+    for (let x in arrayCani) {
         //Recorremos el array y, si el caracter tiene índice par o 0, lo ponemos en minúsculas
         if (x % 2 == 0 | x == 0) {
             arrayCani[x]= arrayCani[x].toLowerCase();
