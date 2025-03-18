@@ -32,11 +32,11 @@ Nota1-> 4, Nota2-> 6, 8, 5, 3 (etc...)
         }
 
         for(let j = 1; j <= 5; j++) {
-            notas[0][j] = prompt(`Dime la nota ${j} para el alumno ${notas[1][0]}`);            
+            notas[1][j] = prompt(`Dime la nota ${j} para el alumno ${notas[1][0]}`);            
         }
 
         for(let k = 1; k <= 5; k++) {
-            notas[0][k] = prompt(`Dime la nota ${k} para el alumno ${notas[2][0]}`);            
+            notas[2][k] = prompt(`Dime la nota ${k} para el alumno ${notas[2][0]}`);            
         }
 
         document.write(`<h3>Notas de ${notas[0][0]}: </h3>
@@ -51,7 +51,4 @@ Nota1-> 4, Nota2-> 6, 8, 5, 3 (etc...)
 </body>
 </html>
 
-"Paco", 4, 6, 8, 5, 3
-"Pepe", 4, 6, 8, 5, 3
-"Antonio", 4, 6, 8, 5, 3
 
