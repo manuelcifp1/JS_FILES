@@ -90,6 +90,8 @@ array.join("");//Lo mismo sin comas.
 
 array.includes("verde");//True o false.
 
+array.reverse();//Invierte el array modificándolo.
+
 delete array[2];//Borra un elemento.
 
 

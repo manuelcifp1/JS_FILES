@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado Cesar</title>
+</head>
+<body>
+    <!--El cifrado César consiste en tomar cada letra de un mensaje y desplazarla en el alfabeto el número que diga una clave. Por ejemplo, la letra A desplazada con clave 2, se convertirá en C.
+Aunque el cifrado César funciona con un alfabeto completo y por desplazamiento (en el ejemplo anterior la letra Z se convertiría en B) se pide crear una página que pida al usuario un texto y una clave y escriba el mismo texto, pero desplazando los caracteres en la tabla Unicode el número que indique la clave.
+A tener en cuenta:
+➢ El resultado se mostrará usando el método document.write()
+➢ El código JavaScript se puede hacer inscrito en el mismo documento.
+➢ No se permiten expresiones regulares.
+Funcionamiento:
+✓ La clave introducida por el usuario debe ser un número válido que no sea inferior a 1 ni superior a (por ejemplo) 10.
+✓ El programa pedirá al usuario la clave hasta que sea un número válido.
+✓ Acto seguido el usuario introduce el texto a cifrar.
+✓ En ningún caso se admitiría una cadena vacía (pulsar Aceptar sin introducir nada).
+✓ Pulsar Cancelar en cualquier momento provoca la salida del programa con un mensaje de despedida: Gracias por usar nuestro software.
+Salida:
+✓ Tanto si se cancela como si se consigue la clave, el sistema lo comunicará con su caja de diálogo correspondiente.-->
+    <script>
+        function jugarCesar() {
+
+            let clave = prompt("Dame una clave entre 1 y 10 ambos inclusive.");
+            clave = Number(clave);
+
+            if(clave < 1 || clave > 10) {
+                alert("Tiene que ser mayor o igual a 1 y menor o igual a 10.");
+                jugarCesar();
+            }
+
+            let cadena = prompt("Dame una cadena");
+            let cadenaUni = "";
+
+            if(cadena.trim() == "") {
+                alert("No puedes dejarlo en blanco. Dame una cadena.");
+                jugarCesar();
+            } else if(cadena === null) {                
+                alert("Gracias por usar nuestro software.");
+                return;
+            } else {
+                arrayCadena = cadena.split();
+                for(let i in arrayCadena) {
+                    let claveUni = arrayCadena[i].charCodeAt(0) + clave;
+                    cadenaUni += String.fromCharCode(claveUni);
+                }
+            }
+
+            return cadenaUni;
+        }
+
+        document.write(jugarCesar());       
+        
+    </script>
+    
+</body>
+</html>
