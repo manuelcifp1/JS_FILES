@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 13.- Realiza una aplicación que solicite un login de usuario
+     exigiendo que únicamente pueda estar compuesto por letras minúsculas, mayúsculas y números.-->
+    <script>
+        function logear() {
+            let regEx = /^[a-zA-Z0-9]+$/;
+            let loginUsuario = prompt("Dame tu login");
+
+            if (regEx.test(loginUsuario)) {
+                return alert("Login correcto.");
+            } else {
+                alert("Login incorrecto, prueba otra vez."); 
+                return logear();
+            }
+        }
+
+        logear();
+    </script>
+    
+</body>
+</html>

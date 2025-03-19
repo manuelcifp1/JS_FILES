@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 14.- Realiza una regexp para validar un DNI tanto español como extranjero,
+     para ello cumplirá:
+    ✓ Deberá constar de 9 caracteres alfanuméricos.
+    ✓ El primero puede ser un número o un carácter K, L, X, Y, Z
+    ✓ El último puede ser un carácter entre TRWAGMYFPDXBNJZSQVHLCKE.
+    ✓ El resto de caracteres son numéricos-->
+    <script>
+        function validarDni() {
+            let dniUsuario = prompt("Dame tu DNI");
+            let regExdni = /^[0-9KLXYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/i;
+
+            if(regExdni.test(dniUsuario)) {
+                alert("DNI correcto.");
+            } else {
+                alert("DNI incorrecto, prueba otra vez.");
+                validarDni();
+            }
+        }
+
+        validarDni();
+    </script>
+</body>
+</html>
