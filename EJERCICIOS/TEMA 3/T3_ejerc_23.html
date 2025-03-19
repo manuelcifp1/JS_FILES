@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let regEx = /([a-zA-Z]{2,})\s([a-zA-Z]{2,})\s([a-zA-Z]{2,})/;
+        let nombreApellidos = prompt("Dígame su nombre y apellidos");
+
+        if (regEx.test(nombreApellidos)) {
+            alert("Es correcto");
+        } else {
+            alert("Su nombre y apellidos no son correctos");
+        }
+    </script>
+    
+</body>
+</html>
