@@ -1,7 +1,7 @@
 let string = "FUNCIONES PARA STRINGS";
 let stringB = "son geniales"
 
-string.length;
+string.length;//Número de elementos de la cadena.
 
 string.charAt(4);//Devuelve el carácter en la posicion 4 (empezando por 0).
 
