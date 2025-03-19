@@ -88,6 +88,8 @@ array.join();//Convierte un array en cadena separando sus elementos con comas.
 
 array.join("");//Lo mismo sin comas.
 
+delete array[2];//Borra un elemento.
+
 
 
 
