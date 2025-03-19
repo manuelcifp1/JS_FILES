@@ -14,23 +14,23 @@ function comprobarDni(dniUsuario) {
 
 function jugarDni() {
     
-        let dniUsuario = prompt("Dame un DNI.");
-        dniUsuario = dniUsuario.replace(" ", "");
-        dniUsuario = dniUsuario.toUpperCase();
+    let dniUsuario = prompt("Dame un DNI.");
+    dniUsuario = dniUsuario.replace(" ", "");
+    dniUsuario = dniUsuario.toUpperCase();
 
-        
-        cantidadElementos = dniUsuario.length;
-        
-        if (cantidadElementos != 9) {
-            alert("Debe tener 9 caracteres.");
-            jugarDni();
-        } else if (cantidadElementos == 0) {
-            alert("Tienes que escribir algo.");
-            jugarDni();
-        }
+    
+    cantidadElementos = dniUsuario.length;
+    
+    if (cantidadElementos != 9) {
+        alert("Debe tener 9 caracteres.");
+        jugarDni();
+    } else if (cantidadElementos == 0) {
+        alert("Tienes que escribir algo.");
+        jugarDni();
+    }
 
-        comprobarDni(dniUsuario);
-        setTimeout(() => {            
+    comprobarDni(dniUsuario);
+    setTimeout(() => {            
         if (comprobarDni(dniUsuario) == true) {
             document.write("<h2>El DNI es correcto</h2>");
         } else  {
@@ -39,8 +39,7 @@ function jugarDni() {
             }, 100);
             jugarDni();
         }
-            
-        }, 500);     
         
+    }, 500);         
 }
 

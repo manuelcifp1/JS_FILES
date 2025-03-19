@@ -1,3 +1,30 @@
+/*PRÁCTICA 6 TEMA 2
+Hacer una aplicación web que implemente un juego para encontrar un número aleatorio. 
+ 
+A tener en cuenta: 
+ 
+➢ El resultado se mostrará usando el método document.write() 
+➢ Debido al tamaño del código se requerirá un fichero JavaScript externo. 
+ 
+Funcionamiento: 
+ 
+✓ La página calculará un número del 1 al 1000. 
+✓ Luego pedirá al usuario que adivine el número.
+
+o Volverá a preguntar si el dato introducido es erróneo. Esto sucederá si: 
+▪ El usuario escribe algo que no es un número 
+▪ El número es menor que 0. 
+▪ El número es mayor que 1000.
+
+o Si  se  cancela  cualquier  cuadro  el  juego  termina  indicando  que  se  canceló  el 
+juego. 
+ 
+✓ Si el número escrito por el usuario es correcto, se indica que se acertó y 
+finalizaremos el juego indicando el número de intentos. 
+✓ Si  no,  se  indicará  si  el  número  buscado  es  menor  o  mayor  al  mismo  tiempo  que 
+volvemos a preguntar al usuario cuál es. Todo esto en el mismo cuadro de diálogo. 
+✓ Se permite volver a jugar al usuario mediante un cuadro de confirmación.
+============================================================================================ */
 
 //Establecemos una variable para contar los intentos.
 let intentos = 0;
