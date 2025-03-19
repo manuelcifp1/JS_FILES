@@ -88,6 +88,8 @@ array.join();//Convierte un array en cadena separando sus elementos con comas.
 
 array.join("");//Lo mismo sin comas.
 
+array.includes("verde");//True o false.
+
 delete array[2];//Borra un elemento.
 
 
