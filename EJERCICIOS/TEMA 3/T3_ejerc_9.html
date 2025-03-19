@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9 T3</title>
+</head>
+<body>
+    <!--Suponiendo el siguiente string: “Hola caracola”, y sabiendo que en JavaScript una cadena es tratada prácticamente del mismo modo que un array, se pide recorrer dicha cadena carácter a carácter, separando los caracteres con espacios. Usarás:
+➢ Un bucle for..in
+➢ Un bucle for..of
+El resultado lo mostraremos usando el método del DOM getElementById()-->
+    <p id="primerParrafo"></p>
+    <p id="segundoParrafo"></p>
+    <script>
+        let cadena = "Hola caracola";
+        let primerTexto = "";
+        let segundoTexto = "";
+
+        for (let i in cadena) {
+            primerTexto += cadena[i] + " ";
+        }
+        document.getElementById("primerParrafo").innerText = primerTexto;
+
+        for (const x of cadena) {
+            segundoTexto += x + " ";
+        }
+        document.getElementById("segundoParrafo").innerText = segundoTexto;
+    </script>
+    
+</body>
+</html>
