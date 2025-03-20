@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Crea una función en JavaScript que convierta una cadena de texto en un estilo "Cani", aplicando las siguientes reglas:
+
+        - Alternar entre mayúsculas y minúsculas en los caracteres de la cadena.
+        - Convertir las letras "c" en "k" y viceversa.
+        - Si la última letra de la cadena es una vocal, añadir "HHH" al final del texto. */
+
+        function convertirACani(cadena) {
+            cadena = cadena.toLowerCase();
+            let cadenaArray = cadena.split("");
+        
+            let elementos = cadenaArray.length;
+            for (let i = 0; i < elementos; i++) {
+                if (cadenaArray[i] == " " || cadenaArray[i] == ".") {
+                    continue;
+                } else if (i % 2 == 0) {
+                        cadenaArray[i] = cadenaArray[i].toUpperCase();
+                } else if (cadenaArray[i] == "c") {
+                    cadenaArray[i] = "k";            
+                } else if (cadenaArray[i] == "k") {
+                    cadenaArray[i] = "c";
+                } 
+            }
+
+            if (cadenaArray[elementos - 1] == "a" || cadenaArray[elementos - 1] == "e" || cadenaArray[elementos - 1] == "i" || cadenaArray[elementos - 1] == "o" || cadenaArray[elementos - 1] == "u") {
+                    cadenaArray.push("HHH");
+                }
+            let nuevaCadena = cadenaArray.join("");
+            return nuevaCadena;
+        }
+
+        document.write(convertirACani("Me llamo Manolo Alba con Mama y Kaka"));
+    </script>
+    
+</body>
+</html>
