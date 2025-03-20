@@ -3,15 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Refranes Aleatorios</title>
 </head>
-<!--Desarrolla un programa en JavaScript que:
+<body>
+    <!--Desarrolla un programa en JavaScript que:
 
 - Permita al usuario ingresar refranes y los almacene en un array.
 - Valide que el refrán tenga al menos 20 caracteres, incluyendo espacios y signos de puntuación.
 - Muestre un refrán aleatorio en pantalla cada 2 segundos.-->
-<body>
-    
-    
+    <h2>Refrán aleatorio:</h2>
+    <div id="refranMostrado"></div>
+
+    <script>
+        let arrayDeRefranes = [];
+
+        function ingresarRefranes() {
+            let refranUsuario = prompt("Ingresa un refrán:");
+            
+            if (refranUsuario === null) { // Si el usuario cancela el prompt, salir
+                return;
+            }
+
+            if (refranUsuario.length < 20) {
+                alert("El refrán debe tener al menos 20 caracteres.");
+                return ingresarRefranes();
+            } else {
+                arrayDeRefranes.push(refranUsuario);
+                return ingresarRefranes();
+            }
+        }
+
+        ingresarRefranes(); // Se ejecuta una vez para pedir refranes
+
+        function mostrarRefranAleatorio() {
+            if (arrayDeRefranes.length === 0) {
+                document.getElementById("refranMostrado").innerHTML = "No hay refranes ingresados.";
+                return;
+            }
+
+            let indiceAleatorio = Math.floor(Math.random() * arrayDeRefranes.length);
+            document.getElementById("refranMostrado").innerHTML = arrayDeRefranes[indiceAleatorio];
+        }
+
+        // 🔄 Mostrar un refrán cada 2 segundos
+        setInterval(mostrarRefranAleatorio, 2000);
+    </script>
 </body>
 </html>
