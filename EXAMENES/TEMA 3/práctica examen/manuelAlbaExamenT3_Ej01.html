@@ -14,30 +14,43 @@
         - Si la última letra de la cadena es una vocal, añadir "HHH" al final del texto. */
 
         function convertirACani(cadena) {
-            cadena = cadena.toLowerCase();
-            let cadenaArray = cadena.split("");
-        
-            let elementos = cadenaArray.length;
-            for (let i = 0; i < elementos; i++) {
-                if (cadenaArray[i] == " " || cadenaArray[i] == ".") {
-                    continue;
-                } else if (i % 2 == 0) {
-                        cadenaArray[i] = cadenaArray[i].toUpperCase();
-                } else if (cadenaArray[i] == "c") {
-                    cadenaArray[i] = "k";            
-                } else if (cadenaArray[i] == "k") {
-                    cadenaArray[i] = "c";
-                } 
-            }
+    cadena = cadena.toLowerCase();
+    let cadenaArray = cadena.split("");
+    let elementos = cadenaArray.length;
 
-            if (cadenaArray[elementos - 1] == "a" || cadenaArray[elementos - 1] == "e" || cadenaArray[elementos - 1] == "i" || cadenaArray[elementos - 1] == "o" || cadenaArray[elementos - 1] == "u") {
-                    cadenaArray.push("HHH");
-                }
-            let nuevaCadena = cadenaArray.join("");
-            return nuevaCadena;
+    // 🔹 PRIMERO: Convertimos "c" en "k" y "k" en "c"
+    for (let i = 0; i < elementos; i++) {
+        if (cadenaArray[i] == "c") {
+            cadenaArray[i] = "k";
+        } else if (cadenaArray[i] == "k") {
+            cadenaArray[i] = "c";
         }
+    }
 
-        document.write(convertirACani("Me llamo Manolo Alba con Mama y Kaka"));
+    // 🔹 SEGUNDO: Alternar entre mayúsculas y minúsculas
+    for (let i = 0; i < elementos; i++) {
+        if (cadenaArray[i] !== " " && cadenaArray[i] !== ".") { // No afecta espacios ni puntos
+            if (i % 2 == 0) {
+                cadenaArray[i] = cadenaArray[i].toUpperCase(); // Si es par → Mayúscula
+            } else {
+                cadenaArray[i] = cadenaArray[i].toLowerCase(); // Si es impar → Minúscula
+            }
+        }
+    }
+
+    // 🔹 TERCERO: Si la última letra es una vocal, añadir "HHH"
+    let ultimaLetra = cadenaArray[elementos - 1];
+    if (ultimaLetra === "a" || ultimaLetra === "e" || ultimaLetra === "i" || ultimaLetra === "o" || ultimaLetra === "u") {
+        cadenaArray.push("HHH");
+    }
+
+    return cadenaArray.join("");
+}
+
+// 🔥 PRUEBA
+document.write(convertirACani("Me llamo Manolo Alba con Mama y Kaka"));
+
+
     </script>
     
 </body>
