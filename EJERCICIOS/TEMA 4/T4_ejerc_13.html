@@ -11,7 +11,7 @@
 ➢ El array ordenado por comparación simple Unicode.
 ➢ El array bien ordenado según valor numérico (usando función callback).-->
 <script>
-    
+
     let arrayNum = ['80', '9', '700', 40, 1, 5, 200];
     //1
     let cadenaChar = arrayNum.join(", ");
@@ -21,11 +21,8 @@
     arrayNum.sort();
     document.write(arrayNum + "<br>");
 
-    //3
-    function comparar(a, b) {
-        return a - b;
-    }
-    arrayNum.sort(comparar);
+    //3    
+    arrayNum.sort((a, b) => a - b);
 
     document.write(arrayNum + "<br>");
 
