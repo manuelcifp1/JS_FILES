@@ -10,12 +10,10 @@
     <script>
         function sumarDigitos(n) {            
 
-            if (n < 10) {
-               let suma = n;
-               return suma;
-            } else {                 
-                let suma = n % 10 + sumarDigitos(Math.trunc(n / 10));
-                return suma;  
+            if (n < 10) {               
+               return n;
+            } else {                
+                return n % 10 + sumarDigitos(Math.trunc(n / 10));  
             }
         }
 
