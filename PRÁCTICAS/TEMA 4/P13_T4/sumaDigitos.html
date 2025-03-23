@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Dado un número entero positivo, crea una función recursiva que sume todos sus dígitos-->
+    <script>
+        function sumarDigitos(n) {            
+
+            if (n < 10) {
+               let suma = n;
+               return suma;
+            } else {                 
+                let suma = n % 10 + sumarDigitos(Math.trunc(n / 10));
+                return suma;  
+            }
+        }
+
+        document.write(sumarDigitos(12345));
+    </script>
+    
+</body>
+</html>

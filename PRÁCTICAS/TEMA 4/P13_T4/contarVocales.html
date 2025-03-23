@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let suma = 0;
+        function contarVocales(cadena) {
+            cadena = cadena.toLowercase();
+
+            if (cadena.length == 1 && !(/[aeiouáéíóú]/.test(cadena))) {
+                return suma;
+            } else {
+                if (/[aeiouáéíóú]/.test.cadena.slice(0, 1)) {
+                    suma++;
+                    contarVocales(cadena.slice(1));
+                } else {
+                    contarVocales(cadena.slice(1));
+                }                 
+            }
+            return suma;
+        }
+
+        document.write(contarVocales("Manolo"));
+    </script>
+    
+</body>
+</html>
+
+ 
+                  
+               
+                    

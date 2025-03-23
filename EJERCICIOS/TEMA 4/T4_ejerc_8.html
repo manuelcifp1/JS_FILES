@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 8.- Dado un cierto array, se pide una función IIFE que muestre los valores pares.-->
+    <script>
+        let ciertoArray = [1, 4, 15, 8, 10, 7];
+        (function() {
+            for (let i = 0; i < ciertoArray.length; i++) {
+                if (ciertoArray[i] % 2 == 0) {
+                    document.write(ciertoArray[i] + " ");
+                } else {
+                    continue;
+                }
+            }
+        })(ciertoArray);
+
+    </script>
+    
+</body>
+</html>

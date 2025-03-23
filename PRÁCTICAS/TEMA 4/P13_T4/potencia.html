@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Función recursiva que tenga de parámetros una base y un exponente para
+     hallar la potencia de la base -->
+
+     <script>
+        function potencia(base, exponente) {
+            if (exponente == 0) {
+                return 1;
+            } else {
+                return base * potencia(base, exponente - 1);
+            }
+        }
+
+        document.write(potencia(0, 3));
+     </script>
+    
+</body>
+</html>
