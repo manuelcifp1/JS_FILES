@@ -29,7 +29,7 @@ function modulear(a, b) {
 
 
 function operacion (dato1, dato2, opCB) {
-    opCB(dato1, dato2);
+    return opCB(dato1, dato2);
 
 }
 console.log(operacion(4, 2, sumar));
