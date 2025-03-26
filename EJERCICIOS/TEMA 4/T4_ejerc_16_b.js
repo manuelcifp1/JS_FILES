@@ -10,10 +10,11 @@
   ];
   
   let alumnosActualizados = alumnos.map(alumno => {
+    let nuevaNota = alumno.nota * 10;
     return {
       ...alumno,
-      nota: alumno.nota * 10,
-      estado: alumno.nota >= 5 ? "APROBADO" : "SUSPENSO"
+      nota: nuevaNota,
+      estado: nuevaNota >= 50 ? "APROBADO" : "SUSPENSO"
     };
   });
   
