@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica 17 - JSON y Map</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 20px auto;
+      font-family: Arial;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+    thead {
+      background-color: #222;
+      color: white;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  // JSON original recibido del servidor
+  let miJSON = `{
+    "idPedido":"faa-8444",
+    "pedidos":[
+      {"idProducto":"info005","nombre":"Placa_Arduino_one","destPostal":"abarcable"},
+      {"idProducto":"info041","nombre":"Placa_Raspberry_3","destPostal":"No abarcable"},
+      {"idProducto":"gadget024","nombre":"usb_Multi_5puertos","destPostal":"abarcable"},
+      {"idProducto":"gadget331","nombre":"ventilador_usb","destPostal":"abarcable"},
+      {"idProducto":"kbook112","nombre":"PHP vs JS","destPostal":"No abarcable"}
+    ]
+  }`;
+
+  // Paso 1: Parsear el JSON a objeto JS
+  let datos = JSON.parse(miJSON);
+
+  // Paso 2: Filtrar solo productos "abarcables"
+  let abarcables = datos.pedidos.filter(p => p.destPostal === "abarcable");
+
+  // Paso 3: Extraer claves (para encabezado dinámico)
+  let claves = Object.keys(abarcables[0]); // ["idProducto", "nombre", "destPostal"]
+
+  // Paso 4: Crear la tabla
+  let tabla = "<table><thead><tr>";
+  tabla += "<th>Producto</th>"; // Primera columna personalizada
+
+  claves.forEach(clave => {
+    tabla += `<th>${clave}</th>`;
+  });
+  tabla += "</tr></thead><tbody>";
+
+  // Paso 5: Rellenar filas
+  abarcables.forEach((producto, index) => {
+    tabla += `<tr><td>Producto${index + 1}</td>`;
+    claves.forEach(clave => {
+      tabla += `<td>${producto[clave]}</td>`;
+    });
+    tabla += "</tr>";
+  });
+
+  tabla += "</tbody></table>";
+
+  // Paso 6: Insertar en el documento
+  document.body.innerHTML = tabla;
+</script>
+
+</body>
+</html>

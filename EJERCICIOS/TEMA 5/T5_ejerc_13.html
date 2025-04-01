@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--Ejercicio 12.- Reloj digital
+Usa la función setInterval(f,ms) para mostrar en el navegador un reloj digital actualizándose cada segundo.
+ Este método consigue que tras cada número de ms milisegundos se ejecute la función f.
+Intenta hacerlo de tal modo que obtengamos una salida por el documento del navegador con document.write()
+ o por document.getElementById().
+¿Podrías mejorarlo para que aparezca en formato HH : MM : SS?-->
+
+<h1 id="reloj"></h1>
+    <script>
+        setInterval(function mostrarReloj () {
+            let dia = new Date();
+            return document.getElementById("reloj").innerHTML = `<h1>${dia.getHours()}:${dia.getMinutes()}:${dia.getSeconds()}</h1>`;
+        }, 1000);
+    </script>
+    
+</body>
+</html>
