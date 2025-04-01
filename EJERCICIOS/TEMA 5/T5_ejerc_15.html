@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 14.- Hora, día de la semana, día del mes, mes, año, fecha local
+Usando botones como los del ejercicio anterior se pide crear 6 botones (elige la disposición y nombres
+ que desees) que muestren en el navegador cada uno de los datos del título del ejercicio.
+  Hazlo de tal modo que los datos se solapen entre ellos, es decir, que usen el mismo párrafo.-->
+    <h1 id="resultado"></h1>
+    <button onclick="darHora()">Hora</button>
+    <button onclick="">DíaSemana</button>
+    <button onclick="">DíaMes</button>
+    <button onclick="">Mes</button>
+    <button onclick="">Año</button>
+    <button onclick="">Fecha Local</button>
+
+    <script>
+        let dia = new Date();
+
+        function darHora() {
+            let hora = dia.getHours();
+            document.getElementById("resultado").innerHTML = hora;
+        }
+
+        function darDiaSemana() {
+            let numeroDiaSemana = dia.getDay();
+            switch(numeroDiaSemana) {
+                case 0:
+                return document.getElementById("resultado").innerHTML = "Lunes";
+                break; 
+                
+                case 1:
+                return document.getElementById("resultado").innerHTML = "Martes";
+                break;
+
+                case 2:
+                return document.getElementById("resultado").innerHTML = "Miércoles";
+                break;
+
+                case 3:
+                return document.getElementById("resultado").innerHTML = "Jueves";
+                break;
+
+                case 4:
+                return document.getElementById("resultado").innerHTML = "Viernes";
+                break;
+
+                case 5:
+                return document.getElementById("resultado").innerHTML = "Sábado";
+                break;
+
+                case 6:
+                return document.getElementById("resultado").innerHTML = "Domingo";
+                break;
+            }
+        }
+
+        function darDiaMes() {
+            let numeroDiaMes = dia.getDate();
+            return document.getElementById("resultado").innerHTML = numeroDiaMes;
+        } 
+
+        function darMes() {
+            let mes = dia.getMonth();
+            switch(mes) {
+                case 0:
+                return document.getElementById("resultado").innerHTML = "Enero";
+                break; 
+                
+                case 1:
+                return document.getElementById("resultado").innerHTML = "Febrero";
+                break;
+
+                case 2:
+                return document.getElementById("resultado").innerHTML = "Marzo";
+                break;
+
+                case 3:
+                return document.getElementById("resultado").innerHTML = "Abril";
+                break;
+
+                case 4:
+                return document.getElementById("resultado").innerHTML = "Mayo";
+                break;
+
+                case 5:
+                return document.getElementById("resultado").innerHTML = "Junio";
+                break;
+
+                case 6:
+                return document.getElementById("resultado").innerHTML = "Julio";
+                break;
+
+                case 7:
+                return document.getElementById("resultado").innerHTML = "Agosto";
+                break; 
+                
+                case 8:
+                return document.getElementById("resultado").innerHTML = "Septiembre";
+                break;
+
+                case 9:
+                return document.getElementById("resultado").innerHTML = "Octubre";
+                break;
+
+                case 10:
+                return document.getElementById("resultado").innerHTML = "Noviembre";
+                break;
+
+                case 11:
+                return document.getElementById("resultado").innerHTML = "Diciembre";
+                break;
+            }
+        }
+
+        function darAnio() {
+            let anio = dia.getFullYear();
+            return document.getElementById("resultado").innerHTML = anio;
+        }
+
+        function darFechaActual() {
+            return document.getElementById("resultado").innerHTML = `${darDiaSemana()}, ${darDiaMes()} de ${darMes()} de ${darAnio()}.`;
+        }
+    </script>
+    
+</body>
+</html>

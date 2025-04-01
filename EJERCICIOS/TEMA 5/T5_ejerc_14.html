@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--Ejercicio 13.- ¡Para!
+Podemos usar el método clearInterval(t) (siendo t = setInterval(f,ms)) para detener la actualización
+ de setInterval(). Usa un botón llamado ¡Para! que al ser pulsado detenga el tiempo.
+Para ello haremos un adelanto del tema de Eventos. Configura el botón del siguiente modo:
+<button onclick="queTePares()">¡Para!</button>, siendo queTePares() la función que detiene el reloj.
+En la línea anterior le estamos diciendo que cuando hagamos clic en el botón (evento onclick)
+ se invocará la función entrecomillada que contendrá una llamada a clearInterval(t)-->
+
+<h1 id="reloj"></h1>
+<button onclick="queTePares()">¡Para!</button>
+    <script>
+        let t = setInterval(function mostrarReloj () {
+            let dia = new Date();
+            return document.getElementById("reloj").innerHTML = `<h1>${dia.getHours()}:${dia.getMinutes()}:${dia.getSeconds()}</h1>`;
+        }, 1000);
+
+        function queTePares() {
+            clearInterval(t);
+        }
+    </script>
+    
+</body>
+</html>
