@@ -12,18 +12,19 @@ Usando botones como los del ejercicio anterior se pide crear 6 botones (elige la
   Hazlo de tal modo que los datos se solapen entre ellos, es decir, que usen el mismo párrafo.-->
     <h1 id="resultado"></h1>
     <button onclick="darHora()">Hora</button>
-    <button onclick="">DíaSemana</button>
-    <button onclick="">DíaMes</button>
-    <button onclick="">Mes</button>
-    <button onclick="">Año</button>
-    <button onclick="">Fecha Local</button>
+    <button onclick="darDiaSemana()">DíaSemana</button>
+    <button onclick="darDiaMes()">DíaMes</button>
+    <button onclick="darMes()">Mes</button>
+    <button onclick="darAnio()">Año</button>
+    <button onclick="darFechaActual()">Fecha Local</button>
 
     <script>
         let dia = new Date();
 
         function darHora() {
             let hora = dia.getHours();
-            document.getElementById("resultado").innerHTML = hora;
+            let minuto = dia.getMinutes();
+            document.getElementById("resultado").innerHTML = hora + ":" + minuto;
         }
 
         function darDiaSemana() {
