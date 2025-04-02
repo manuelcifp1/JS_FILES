@@ -41,7 +41,7 @@ function Portatil(marca, modelo, ram, disco, pulgadas, autonomia) {
     //Propiedad exclusiva de Portatil
     this.autonomia = autonomia || 4; // por defecto 4h
 
-    //Sobrescribir toString para mostrar también autonomía
+    //Nuevo método toString que llama al original y muestra también autonomía.
     this.toString = function() {
         return `${this.__proto__.toString()}\n
         Autonomía: ${this.autonomia} horas`;
