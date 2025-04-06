@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 1.- Mediante la propiedad innerHTML, muestra por pantalla la siguiente información:
+     ¿están las cookies activadas en el navegador? ¿y java? ¿Qué lenguaje usa? ¿está el navegador trabajando online?
+     Muestra además si nuestro navegador usa el motor Gecko, para ello deberás sacar la información del string
+      que devuelve la propiedad userAgent.-->
+    <h1 id="cookies"></h1>
+    <h1 id="java"></h1>
+    <h1 id="lengua"></h1>
+    <h1 id="online"></h1>
+    <h1 id="gecko"></h1>
+    <h1 id="geckoInfo"></h1>
+    <script>
+        document.getElementById("cookies").innerHTML = "¿Están la cookies activadas?-> " + navigator.cookieEnabled + "<br>";
+
+        document.getElementById("java").innerHTML = "¿Está java activado?-> " + navigator.cookieEnabled + "<br>";
+
+        document.getElementById("lengua").innerHTML = "¿Qué lenguaje usa?-> " + navigator.language + "<br>";
+
+        document.getElementById("online").innerHTML = "¿Está el navegador online?-> " + navigator.onLine + "<br>";
+
+        let gecko = navigator.userAgent;
+        document.getElementById("geckoInfo").innerHTML = gecko + "<br>";
+
+        if (gecko.includes("Gecko")) {
+            document.getElementById("gecko").innerHTML = "El navegador usa el motor Gecko<br>";
+        } else {
+            document.getElementById("gecko").innerHTML = "El navegador no usa el motor Gecko<br>";
+        }
+
+
+
+</script>
+</body>
+</html>
