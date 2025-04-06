@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="availTop"></p>
+    <p id="availLeft"></p>
+    <p id="availHeight"></p>
+    <p id="availWidth"></p>
+    <p id="height"></p>
+    <p id="width"></p>
+    <p id="orientation"></p>
+    <p id="colorDepth"></p>
+    <button onclick="datosScreen()">Púlsame</button>
+    <script>
+        function datosScreen() {
+
+            document.getElementById("availTop").innerHTML = "La primera coordenada superior de la pantalla que se puede utilizar en nuestras aplicaciones es: " + screen.availTop + "<br>";
+            document.getElementById("availLeft").innerHTML = "La primera coordenada izquierda de la pantalla que se puede utilizar en nuestras aplicaciones es: " + screen.availLeft + "<br>";
+            document.getElementById("availHeight").innerHTML = "El tamaño en píxeles de la altura de pantalla del usuario sin contar la barra de tareas es: " + screen.availHeight + "<br>";
+            document.getElementById("availWidth").innerHTML = "El tamaño en píxeles de la anchura de la pantalla del usuario sin contar la barra de tareas es: " + screen.availWidth + "<br>";
+            document.getElementById("height").innerHTML = "La altura completa de la pantalla del usuario en píxeles es: " + screen.height + "<br>";
+            document.getElementById("width").innerHTML = "La anchura completa de la pantalla del usuario en píxeles es: " + screen.width + "<br>";
+            document.getElementById("orientation").innerHTML = "La orientación de la pantalla es: " + screen.orientation.type + "<br>";
+
+            let exponente = screen.colorDepth;
+
+            function potencia(base, exponente) {
+                    if (exponente == 0) {
+                        return 1;
+                    } else {
+                        return base * potencia(base, exponente - 1);
+                    }
+                }
+
+            document.getElementById("colorDepth").innerHTML = "El número de colores disponible en pantalla es: " + potencia(2, exponente) + "<br>";
+        }        
+        
+    </script>
+</body>
+</html>
