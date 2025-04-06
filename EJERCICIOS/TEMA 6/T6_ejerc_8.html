@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 8 - Ventana</title>
+</head>
+<body>
+  <!--Ejercicio 8.- Hacer una aplicación que por acción de un botón llamado Ventana, cree una ventana de 300 x 450
+   con un texto en negrita donde aparezcan escritas las dimensiones de la ventana actual y de la pantalla del usuario.
+    Al pasar 10 segundos la ventana creada se cerrará.-->
+
+  <button onclick="abrirVentana()">Ventana</button>
+
+  <script>
+    function abrirVentana() {
+      // Abrir nueva ventana de 300x450
+      const nuevaVentana = window.open("", "", "width=300,height=450");
+
+      // Medidas actuales de la ventana principal
+      const anchoVentana = window.innerWidth;
+      const altoVentana = window.innerHeight;
+
+      // Medidas de la pantalla del usuario
+      const anchoPantalla = screen.width;
+      const altoPantalla = screen.height;
+
+      // Contenido HTML para la nueva ventana
+      const contenido = `
+        <html>
+          <head>
+            <title>Info de Dimensiones</title>
+          </head>
+          <body>
+            <p><strong>Dimensiones de la ventana principal:</strong><br>
+            Ancho: ${anchoVentana}px<br>
+            Alto: ${altoVentana}px</p>
+            
+            <p><strong>Dimensiones de la pantalla del usuario:</strong><br>
+            Ancho: ${anchoPantalla}px<br>
+            Alto: ${altoPantalla}px</p>
+          </body>
+        </html>
+      `;
+
+      // Escribir contenido en la nueva ventana
+      nuevaVentana.document.write(contenido);
+      nuevaVentana.document.close();
+
+      // Cerrar automáticamente después de 10 segundos
+      setTimeout(() => {
+        nuevaVentana.close();
+      }, 10000);
+    }
+  </script>
+
+</body>
+</html>
