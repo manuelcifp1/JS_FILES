@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <!--Ejercicio 12.- Usa el método HTMLCollection adecuado para obtener el texto del segundo párrafo.
+     Consulta para ello el enlace https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection-->
+    <main id="principal">
+        <p>Uno</p>
+        <p>Dos</p>
+        <p>Tres</p>
+    </main>
+    <p>Cuatro</p>
+    <p>Cinco</p>
+    
+    <p id="resultado"></p>
+    <p id="resultado2"></p>
+    
+    <script>
+        const contenidoSegP = document.getElementsByTagName('p');
+        document.getElementById('resultado').innerHTML = '<strong>' + contenidoSegP.item(1).innerText + '</strong>';
+
+        //Ahora convertimos la HTMLCollection de 'principal' en un array (Array.from(parrafosPpal))
+        let parrafosPpal = document.getElementById ("principal").getElementsByTagName("p");
+        let arrayP = Array.from (parrafosPpal);
+
+        //Y aquí mostramos el contenido de cada elemento del array.
+        let todo = "";
+
+        for(let e of arrayP) {
+            todo += e.innerText + " ";
+        }
+
+        document.getElementById('resultado2').innerHTML = '<strong style= "color: red">' + todo.trim() + '</strong>'; 
+        
+    </script>
+</body>
+</html>

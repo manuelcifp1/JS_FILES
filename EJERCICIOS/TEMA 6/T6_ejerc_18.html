@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Toggle</title>
+</head>
+<body>
+    <!--Ejercicio 17.- Aplicación que muestre un botón por pantalla.
+     Al ser pulsado este se deshabilitará.-->
+    <button>Este se deshabilita</button>
+    <br><br>
+    <button onclick="deshabilitar()">Pulsa para deshabilitar</button>
+    <script>
+        let entrada = document.querySelectorAll("button")[0];
+        function deshabilitar() {
+            entrada.toggleAttribute("disabled");
+        }
+    </script>
+    
+</body>
+</html>

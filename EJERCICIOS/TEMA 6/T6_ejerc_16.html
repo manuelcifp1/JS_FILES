@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 16.- Elimina todos los atributos class con el valor carne.-->
+    <ul>
+        <li class="verdura">Lechuga</li>
+        <li class="verdura">Tomates</li>
+        <li class="carne">Pollo</li>
+        <li class="verdura">Remolacha</li>
+        <li class="carne">Ternera</li>
+        <li class="legumbre">Garbanzos</li>
+        <li class="legumbre">Lentejas</li>
+        <li class="carne">Cerdo</li>
+        <li class="verdura">Berenjena</li>
+        <li class="legumbre">Habas</li>
+    </ul>
+    <p id="resultado"></p>
+    <script>
+        let lista = document.querySelectorAll("li");
+
+        for(let eliminado of lista) {
+            if(eliminado.getAttribute("class") == "carne") {
+                eliminado.removeAttribute("class");
+            }
+        }
+
+        let resultado = "";
+        for(let otraCosa of lista) {
+            resultado += otraCosa.getAttribute("class") + " ";
+        }
+
+        document.getElementById("resultado").innerHTML = resultado;
+    </script>
+    
+</body>
+</html>

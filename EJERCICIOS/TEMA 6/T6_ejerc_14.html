@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 14.- Usa un bucle for..of para conseguir el valor de todos los atributos
+     class de los elementos li dentro de ul.
+     Hazlo en la forma clase -> valor (Ej: listado.getAttribute(“class”)-->
+    <ul>
+        <li class="verdura">Lechuga</li>
+        <li class="verdura">Tomates</li>
+        <li class="carne">Pollo</li>
+        <li class="verdura">Remolacha</li>
+        <li class="carne">Ternera</li>
+        <li class="legumbre">Garbanzos</li>
+        <li class="legumbre">Lentejas</li>
+        <li class="carne">Cerdo</li>
+        <li class="verdura">Berenjena</li>
+        <li class="legumbre">Habas</li>
+    </ul>
+    <p id="resultado"></p>
+    <script>
+        let listado = document.querySelectorAll("li");
+        let todo = "";
+        for(let clase of listado) {
+            todo += clase.getAttribute("class") + "-->" + clase.innerHTML + "<br>";
+        }
+        document.getElementById("resultado").innerHTML = todo;
+    </script>
+    
+</body>
+</html>
