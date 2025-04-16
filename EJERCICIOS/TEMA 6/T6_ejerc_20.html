@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Toggle</title>
+</head>
+<body>
+    <!--Ejercicio 20.- Obtén todos los atributos del elemento input del Código5
+     con el formato: “El atributo x tiene como valor y”-->
+    <form>
+        <label for="edad">Escribe su edad: </label>
+        <input type="number" id="edad" name="edad" min="18" max="65">
+    </form>
+    <p id="resultado"></p>
+
+    <script>
+        let resultado = "";
+
+        let atributos = document.getElementById("edad").attributes;
+
+        for(let atributo of atributos) {
+            resultado += "El atributo " + atributo.name + " tiene como valor " + atributo.value + "<br>";
+        }
+
+        document.getElementById("resultado").innerHTML = resultado;
+
+    </script>
+    
+</body>
+</html>

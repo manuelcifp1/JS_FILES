@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo párrafo en el Lorem Ipsum</title>
+</head>
+<body>
+    <ol>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum magnam iusto omnis labore consequuntur eaque laborum aut id! Hic unde sunt temporibus, error modi quas recusandae asperiores quia nemo molestiae?</li>
+        <li>Nihil accusamus odio iure dolor, quisquam, id ratione exercitationem eum vero laboriosam inventore. Ex quisquam animi, dolorem minima cupiditate amet facilis deleniti consequuntur laboriosam commodi at consequatur! Quod, perspiciatis velit.</li>
+        <li>Autem optio neque error nihil nam pariatur quos commodi eveniet ducimus doloremque quasi obcaecati beatae, laboriosam itaque placeat dolor qui a, ipsum voluptate porro incidunt amet. Veniam earum quaerat cupiditate.</li>
+        <li>Ad excepturi accusantium culpa doloremque, qui placeat veritatis voluptate. Assumenda quibusdam, quidem quisquam aliquam saepe, vitae eum cumque cum eos doloribus quos labore quas ad dolore voluptates iure exercitationem odit.</li>
+        <li>Eligendi sint repellat perferendis voluptatibus distinctio rem, laborum ducimus quaerat molestias ab officiis maxime minima fugiat fuga voluptatem exercitationem, dignissimos inventore suscipit neque perspiciatis voluptatum ut veritatis adipisci. Nesciunt, sunt!</li>
+        <li>Qui molestiae corrupti rem earum reiciendis nisi nobis autem similique voluptate laudantium, tempora, pariatur dicta fuga. Quidem, ullam numquam voluptatibus inventore magni doloribus, obcaecati pariatur sequi ea repellat suscipit id.</li>
+        <li>Perferendis consectetur ipsa ullam porro sapiente facere maxime minima, nesciunt adipisci quod voluptatem tempore. Enim deserunt voluptatem veniam! Nam id deleniti reiciendis eos non dolorem numquam maiores? Voluptate, commodi aspernatur!</li>
+        <li>Laborum blanditiis magnam fugit culpa facere asperiores accusamus amet eaque recusandae? Alias, facilis ipsum tempore, a aut, fugiat sint aliquam provident dicta quo omnis. Corrupti qui culpa ducimus laudantium explicabo!</li>
+        <li>Facere, vero autem doloribus doloremque tempore iste deleniti commodi officia provident est beatae corrupti culpa nostrum, et porro magni possimus rem. Temporibus facere ullam placeat obcaecati et, ad nemo perferendis!</li>
+    </ol>
+    
+    <script>        
+
+        function pedirNumero() {
+            return numero;
+        }
+
+        function pedirTexto() {
+            return texto;
+        } 
+        
+        let parrafos = document.getElementsByTagName("ol")[0];
+        
+        let numero = prompt("Dame un número de 1 al 10");
+
+        if (numero === null) {
+            alert("Has cancelado el juego.");
+            return;
+        } else if (numero == "") {
+            alert("No se permite un campo vacío.");
+            pedirTexto();
+        } else if (numero == " ") {
+            alert("No se permiten espacios.");
+            pedirTexto();
+        } else {
+            numero = Number(numero);
+        }
+        
+        let texto = prompt("Dame un texto");
+
+        if (texto === null) {
+            alert("Has cancelado el juego.");
+            return;
+        } else if (texto == "") {
+            alert("No se permite un campo vacío.");
+            pedirTexto();
+        } else if (texto == " ") {
+            alert("No se permiten espacios.");
+            pedirTexto();
+        } else {
+           let elementoAnterior = parrafos.children[numero + 1];
+           parrafos.insertBefore("<strong>" + texto + "</strong>", elementoAnterior); 
+        }
+    </script>
+    
+</body>
+</html>
+
+
