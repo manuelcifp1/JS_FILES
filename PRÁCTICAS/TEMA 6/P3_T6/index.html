@@ -3,66 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo párrafo en el Lorem Ipsum</title>
+    <title>Nuevo párrafo</title>
 </head>
 <body>
     <ol>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum magnam iusto omnis labore consequuntur eaque laborum aut id! Hic unde sunt temporibus, error modi quas recusandae asperiores quia nemo molestiae?</li>
-        <li>Nihil accusamus odio iure dolor, quisquam, id ratione exercitationem eum vero laboriosam inventore. Ex quisquam animi, dolorem minima cupiditate amet facilis deleniti consequuntur laboriosam commodi at consequatur! Quod, perspiciatis velit.</li>
-        <li>Autem optio neque error nihil nam pariatur quos commodi eveniet ducimus doloremque quasi obcaecati beatae, laboriosam itaque placeat dolor qui a, ipsum voluptate porro incidunt amet. Veniam earum quaerat cupiditate.</li>
-        <li>Ad excepturi accusantium culpa doloremque, qui placeat veritatis voluptate. Assumenda quibusdam, quidem quisquam aliquam saepe, vitae eum cumque cum eos doloribus quos labore quas ad dolore voluptates iure exercitationem odit.</li>
-        <li>Eligendi sint repellat perferendis voluptatibus distinctio rem, laborum ducimus quaerat molestias ab officiis maxime minima fugiat fuga voluptatem exercitationem, dignissimos inventore suscipit neque perspiciatis voluptatum ut veritatis adipisci. Nesciunt, sunt!</li>
-        <li>Qui molestiae corrupti rem earum reiciendis nisi nobis autem similique voluptate laudantium, tempora, pariatur dicta fuga. Quidem, ullam numquam voluptatibus inventore magni doloribus, obcaecati pariatur sequi ea repellat suscipit id.</li>
-        <li>Perferendis consectetur ipsa ullam porro sapiente facere maxime minima, nesciunt adipisci quod voluptatem tempore. Enim deserunt voluptatem veniam! Nam id deleniti reiciendis eos non dolorem numquam maiores? Voluptate, commodi aspernatur!</li>
-        <li>Laborum blanditiis magnam fugit culpa facere asperiores accusamus amet eaque recusandae? Alias, facilis ipsum tempore, a aut, fugiat sint aliquam provident dicta quo omnis. Corrupti qui culpa ducimus laudantium explicabo!</li>
-        <li>Facere, vero autem doloribus doloremque tempore iste deleniti commodi officia provident est beatae corrupti culpa nostrum, et porro magni possimus rem. Temporibus facere ullam placeat obcaecati et, ad nemo perferendis!</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis aperiam nesciunt ducimus quam error animi ex! Ex impedit nesciunt ratione! Odit, maxime consequuntur in perferendis earum voluptatum illum debitis delectus.</li>
+        <li>Tenetur excepturi laborum nihil fuga, error unde doloremque obcaecati iure earum architecto quidem quaerat exercitationem ipsa, dolore, tempore veritatis at velit incidunt iusto porro esse? Ipsa expedita temporibus reiciendis eius!</li>
+        <li>Libero reiciendis natus, excepturi porro quo a molestias vitae ullam ex atque officia minima quam necessitatibus explicabo repellat dignissimos similique dolorem voluptas optio, maxime laboriosam. Saepe maxime voluptatem excepturi fugit.</li>
+        <li>Quia veritatis tempora explicabo magni ea magnam aperiam distinctio quaerat, molestias officia provident quas eius nobis et necessitatibus consequatur illum fugiat! Laboriosam ratione cumque beatae adipisci. Provident architecto suscipit numquam!</li>
+        <li>Autem quaerat maiores, quos, earum aspernatur placeat consequuntur, dolores sed enim recusandae expedita dignissimos odio ex facere accusantium velit quam perferendis explicabo alias dolor! Tempore doloremque illo ut inventore eum!</li>
+        <li>Mollitia velit alias porro sunt expedita. Veritatis obcaecati ab nobis perferendis rem incidunt rerum debitis nemo dignissimos. Pariatur odit excepturi odio ullam praesentium repellendus beatae numquam eaque animi, repudiandae ea!</li>
+        <li>Cum magni quasi quibusdam veritatis ea perferendis, modi at officia cupiditate ullam necessitatibus velit minus enim unde temporibus dignissimos eligendi maiores? Quidem temporibus saepe corrupti rem, aut vel aspernatur alias.</li>
+        <li>Cupiditate, dolorem ad! Enim velit vitae molestias minus id fugit expedita aut sit eum facere. Accusamus temporibus vero omnis soluta id tempore, perspiciatis molestias non. Voluptates aliquid blanditiis illo quam?</li>
+        <li>Deleniti repellendus ipsa libero quasi iusto nesciunt ipsum dolorem ratione animi sapiente possimus doloremque explicabo saepe earum magni mollitia voluptate, commodi ipsam aspernatur impedit debitis corrupti voluptas quia corporis. Culpa?</li>
     </ol>
-    
-    <script>        
+    <script>
+        while (true) {
+            // Solicito el texto al usuario
+            let texto = prompt("Introduce el texto del nuevo párrafo (no vacío):");
 
-        function pedirNumero() {
-            return numero;
-        }
+            //Si el usuario cancela:
+            if (texto === null) {
+                alert("Operación cancelada.");
+                break;
+            }
+            //Elimino espacios al principio y final del texto del usuario
+            texto = texto.trim();
 
-        function pedirTexto() {
-            return texto;
-        } 
-        
-        let parrafos = document.getElementsByTagName("ol")[0];
-        
-        let numero = prompt("Dame un número de 1 al 10");
+            //Si no ha introducido nada:
+            if (texto === "") {
+                alert("El texto no puede estar vacío. Intenta de nuevo.");
+                continue;
+            }
 
-        if (numero === null) {
-            alert("Has cancelado el juego.");
-            return;
-        } else if (numero == "") {
-            alert("No se permite un campo vacío.");
-            pedirTexto();
-        } else if (numero == " ") {
-            alert("No se permiten espacios.");
-            pedirTexto();
-        } else {
-            numero = Number(numero);
-        }
-        
-        let texto = prompt("Dame un texto");
+            //Solicitar posición al usuario
+            let posicion = prompt("Introduce la posición (1-10):");
 
-        if (texto === null) {
-            alert("Has cancelado el juego.");
-            return;
-        } else if (texto == "") {
-            alert("No se permite un campo vacío.");
-            pedirTexto();
-        } else if (texto == " ") {
-            alert("No se permiten espacios.");
-            pedirTexto();
-        } else {
-           let elementoAnterior = parrafos.children[numero + 1];
-           parrafos.insertBefore("<strong>" + texto + "</strong>", elementoAnterior); 
+            //Si el usuario cancela:
+            if (posicion === null) {
+                alert("Operación cancelada.");
+                break;
+            }
+
+            //Con esto se controla que realmente introduzca un número en el rango requerido
+
+            //Primero convertimos la cadena a número.
+            posicion = Number(posicion);
+
+            //Validaciones
+            if (isNaN(posicion) || posicion < 1 || posicion > 10) {
+                alert("Debes introducir un número entre 1 y 10. Intenta de nuevo.");
+                continue;
+            }
+
+            //Crear nuevo elemento <li> y agregar el texto en negrita
+            let nuevoParrafo = document.createElement("li");
+            let textoEnNegrita = document.createElement("strong");
+            textoEnNegrita.textContent = texto;
+            nuevoParrafo.appendChild(textoEnNegrita);
+
+            //Inserta el nuevo párrafo en la posición indicada
+            let lista = document.querySelector("ol");
+            let referencia = lista.children[posicion - 1];
+            if (referencia) {
+                lista.insertBefore(nuevoParrafo, referencia);
+            } else {
+                lista.appendChild(nuevoParrafo); //Agregar al final si la posición excede
+            }
+            
+            break;
         }
     </script>
-    
 </body>
 </html>
-
-
