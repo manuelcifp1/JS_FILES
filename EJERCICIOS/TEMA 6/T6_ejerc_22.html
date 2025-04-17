@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 22.- Crea una aplicación que muestre un botón Convertir y una caja div con el texto
+     “¡¡Transfórmame!!”, al pulsar el botón el texto adquirirá los estilos descritos en tres clases css.
+      Crea otro botón Resetea para volver al estado inicial. Crea otro botón Intercambia que intercambie
+       entre un estado con y sin formato de clases.-->
+
+       <button onclick="convertir()">CONVERTIR</button>
+       <br>
+       <button onclick="resetear()">RESETEA</button>
+       <br>
+       <button onclick="intercambiar()">INTERCAMBIA</button>
+       <br>
+       <br>
+       <br>
+
+       <div style="width: 150px; height: 150px; background-color: rgb(208, 255, 127);">¡TRANSFÓRMAME!!</div>
+
+       <style>
+        .claseUno {
+            color:blueviolet;
+        }
+
+        .claseDos {
+            font-weight: 900;
+        }
+
+        .claseTres {
+            font-size: xx-large;
+        }
+
+       </style>
+
+       <script>
+        let textoCaja = document.getElementsByTagName("div")[0];
+
+        
+
+        function convertir() {
+            textoCaja.classList.add("claseUno", "claseDos", "claseTres");
+            
+        }
+
+        function resetear() {
+            textoCaja.classList.remove("claseUno", "claseDos", "claseTres");
+            
+        }
+
+        
+
+        function intercambiar() {
+            if (textoCaja.classList.contains("claseUno")) {
+                    resetear();
+            } else {
+                    convertir();
+            }
+        }
+       </script>
+    
+</body>
+</html>
