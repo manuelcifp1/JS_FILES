@@ -1,78 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo párrafo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <style>
+        .censurado {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            animation: blink 1.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75%     { opacity: 0; }
+        }
+    </style>
 </head>
 <body>
-    <ol>
-        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis aperiam nesciunt ducimus quam error animi ex! Ex impedit nesciunt ratione! Odit, maxime consequuntur in perferendis earum voluptatum illum debitis delectus.</li>
-        <li>Tenetur excepturi laborum nihil fuga, error unde doloremque obcaecati iure earum architecto quidem quaerat exercitationem ipsa, dolore, tempore veritatis at velit incidunt iusto porro esse? Ipsa expedita temporibus reiciendis eius!</li>
-        <li>Libero reiciendis natus, excepturi porro quo a molestias vitae ullam ex atque officia minima quam necessitatibus explicabo repellat dignissimos similique dolorem voluptas optio, maxime laboriosam. Saepe maxime voluptatem excepturi fugit.</li>
-        <li>Quia veritatis tempora explicabo magni ea magnam aperiam distinctio quaerat, molestias officia provident quas eius nobis et necessitatibus consequatur illum fugiat! Laboriosam ratione cumque beatae adipisci. Provident architecto suscipit numquam!</li>
-        <li>Autem quaerat maiores, quos, earum aspernatur placeat consequuntur, dolores sed enim recusandae expedita dignissimos odio ex facere accusantium velit quam perferendis explicabo alias dolor! Tempore doloremque illo ut inventore eum!</li>
-        <li>Mollitia velit alias porro sunt expedita. Veritatis obcaecati ab nobis perferendis rem incidunt rerum debitis nemo dignissimos. Pariatur odit excepturi odio ullam praesentium repellendus beatae numquam eaque animi, repudiandae ea!</li>
-        <li>Cum magni quasi quibusdam veritatis ea perferendis, modi at officia cupiditate ullam necessitatibus velit minus enim unde temporibus dignissimos eligendi maiores? Quidem temporibus saepe corrupti rem, aut vel aspernatur alias.</li>
-        <li>Cupiditate, dolorem ad! Enim velit vitae molestias minus id fugit expedita aut sit eum facere. Accusamus temporibus vero omnis soluta id tempore, perspiciatis molestias non. Voluptates aliquid blanditiis illo quam?</li>
-        <li>Deleniti repellendus ipsa libero quasi iusto nesciunt ipsum dolorem ratione animi sapiente possimus doloremque explicabo saepe earum magni mollitia voluptate, commodi ipsam aspernatur impedit debitis corrupti voluptas quia corporis. Culpa?</li>
-    </ol>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, modi. Atque sapiente, caca iusto quidem sunt voluptate accusantium explicabo iure, officiis inventore numquam est distinctio itaque veritatis aspernatur dolores mollitia.
+        Quibusdam minima magnam earum accusamus dolore. Pipi numquam unde, asperiores voluptatibus aspernatur id, ea PEDO explicabo eius ab illo, tonto nisi? Distinctio, CACA. Corrupti similique consequatur nesciunt optio recusandae autem.
+        Quae commodi in fuga modi omnis placeat qui molestias dolores architecto beatae accusamus similique consequuntur nesciunt ea ratione repudiandae, pariatur minus dolore officiis amet et unde sapiente. Similique, aliquid saepe.
+        Eum optio dolore non illum PIS aperiam id deserunt pedo reprehenderit animi, nihil nostrum pis impedit TONTO, saepe exercitationem repellendus! Eaque vero tempore voluptatum obcaecati incidunt nulla porro corrupti cumque.</p>
+    <br>
+    <button onclick="bloquearContenido()">CENSURAR</button>
+
     <script>
-        while (true) {
-            // Solicito el texto al usuario
-            let texto = prompt("Introduce el texto del nuevo párrafo (no vacío):");
+        let censuradas = ["pipi", "pedo", "caca", "pis", "tonto"];
+        let parrafo = document.getElementsByTagName("p")[0].innerHTML;
 
-            //Si el usuario cancela:
-            if (texto === null) {
-                alert("Operación cancelada.");
-                break;
-            }
-            //Elimino espacios al principio y final del texto del usuario
-            texto = texto.trim();
+        function bloquearContenido() {
+            let huboCensura = false;
 
-            //Si no ha introducido nada:
-            if (texto === "") {
-                alert("El texto no puede estar vacío. Intenta de nuevo.");
-                continue;
+            for (let censura of censuradas) {
+                let regEx = new RegExp("\\b" + censura + "\\b", "gi");
+                let antes = parrafo;
+                parrafo = parrafo.replace(regEx, "<span class='censurado'>CENSURADO</span>");
+                if (parrafo !== antes) {
+                    huboCensura = true;
+                }
             }
 
-            //Solicitar posición al usuario
-            let posicion = prompt("Introduce la posición (1-10):");
-
-            //Si el usuario cancela:
-            if (posicion === null) {
-                alert("Operación cancelada.");
-                break;
+            if (!huboCensura) {
+                alert("No se han encontrado palabras censurables");
             }
 
-            //Con esto se controla que realmente introduzca un número en el rango requerido
-
-            //Primero convertimos la cadena a número.
-            posicion = Number(posicion);
-
-            //Validaciones
-            if (isNaN(posicion) || posicion < 1 || posicion > 10) {
-                alert("Debes introducir un número entre 1 y 10. Intenta de nuevo.");
-                continue;
-            }
-
-            //Crear nuevo elemento <li> y agregar el texto en negrita
-            let nuevoParrafo = document.createElement("li");
-            let textoEnNegrita = document.createElement("strong");
-            textoEnNegrita.textContent = texto;
-            nuevoParrafo.appendChild(textoEnNegrita);
-
-            //Inserta el nuevo párrafo en la posición indicada
-            let lista = document.querySelector("ol");
-            let referencia = lista.children[posicion - 1];
-            if (referencia) {
-                lista.insertBefore(nuevoParrafo, referencia);
-            } else {
-                lista.appendChild(nuevoParrafo); //Agregar al final si la posición excede
-            }
-            
-            break;
+            document.getElementsByTagName("p")[0].innerHTML = parrafo;
         }
-    </script>
+    </script>    
 </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo párrafo</title>
+</head>
+<body>
+    <ol>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis aperiam nesciunt ducimus quam error animi ex! Ex impedit nesciunt ratione! Odit, maxime consequuntur in perferendis earum voluptatum illum debitis delectus.</li>
+        <li>Tenetur excepturi laborum nihil fuga, error unde doloremque obcaecati iure earum architecto quidem quaerat exercitationem ipsa, dolore, tempore veritatis at velit incidunt iusto porro esse? Ipsa expedita temporibus reiciendis eius!</li>
+        <li>Libero reiciendis natus, excepturi porro quo a molestias vitae ullam ex atque officia minima quam necessitatibus explicabo repellat dignissimos similique dolorem voluptas optio, maxime laboriosam. Saepe maxime voluptatem excepturi fugit.</li>
+        <li>Quia veritatis tempora explicabo magni ea magnam aperiam distinctio quaerat, molestias officia provident quas eius nobis et necessitatibus consequatur illum fugiat! Laboriosam ratione cumque beatae adipisci. Provident architecto suscipit numquam!</li>
+        <li>Autem quaerat maiores, quos, earum aspernatur placeat consequuntur, dolores sed enim recusandae expedita dignissimos odio ex facere accusantium velit quam perferendis explicabo alias dolor! Tempore doloremque illo ut inventore eum!</li>
+        <li>Mollitia velit alias porro sunt expedita. Veritatis obcaecati ab nobis perferendis rem incidunt rerum debitis nemo dignissimos. Pariatur odit excepturi odio ullam praesentium repellendus beatae numquam eaque animi, repudiandae ea!</li>
+        <li>Cum magni quasi quibusdam veritatis ea perferendis, modi at officia cupiditate ullam necessitatibus velit minus enim unde temporibus dignissimos eligendi maiores? Quidem temporibus saepe corrupti rem, aut vel aspernatur alias.</li>
+        <li>Cupiditate, dolorem ad! Enim velit vitae molestias minus id fugit expedita aut sit eum facere. Accusamus temporibus vero omnis soluta id tempore, perspiciatis molestias non. Voluptates aliquid blanditiis illo quam?</li>
+        <li>Deleniti repellendus ipsa libero quasi iusto nesciunt ipsum dolorem ratione animi sapiente possimus doloremque explicabo saepe earum magni mollitia voluptate, commodi ipsam aspernatur impedit debitis corrupti voluptas quia corporis. Culpa?</li>
+    </ol>
+    <script>
+        while (true) {
+            // Solicito el texto al usuario
+            let texto = prompt("Introduce el texto del nuevo párrafo (no vacío):");
+
+            //Si el usuario cancela:
+            if (texto === null) {
+                alert("Operación cancelada.");
+                break;
+            }
+            //Elimino espacios al principio y final del texto del usuario
+            texto = texto.trim();
+
+            //Si no ha introducido nada:
+            if (texto === "") {
+                alert("El texto no puede estar vacío. Intenta de nuevo.");
+                continue;
+            }
+
+            //Solicitar posición al usuario
+            let posicion = prompt("Introduce la posición (1-10):");
+
+            //Si el usuario cancela:
+            if (posicion === null) {
+                alert("Operación cancelada.");
+                break;
+            }
+
+            //Con esto se controla que realmente introduzca un número en el rango requerido
+
+            //Primero convertimos la cadena a número.
+            posicion = Number(posicion);
+
+            //Validaciones
+            if (isNaN(posicion) || posicion < 1 || posicion > 10) {
+                alert("Debes introducir un número entre 1 y 10. Intenta de nuevo.");
+                continue;
+            }
+
+            //Crear nuevo elemento <li> y agregar el texto en negrita
+            let nuevoParrafo = document.createElement("li");
+            let textoEnNegrita = document.createElement("strong");
+            textoEnNegrita.textContent = texto;
+            nuevoParrafo.appendChild(textoEnNegrita);
+
+            //Inserta el nuevo párrafo en la posición indicada
+            let lista = document.querySelector("ol");
+            let referencia = lista.children[posicion - 1];
+            if (referencia) {
+                lista.insertBefore(nuevoParrafo, referencia);
+            } else {
+                lista.appendChild(nuevoParrafo); //Agregar al final si la posición excede
+            }
+            
+            break;
+        }
+    </script>
+</body>
+</html>
