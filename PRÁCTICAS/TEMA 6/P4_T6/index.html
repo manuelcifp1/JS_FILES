@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contamos palabras en el Lorem Ipsum</title>
+</head>
+<body>
+    <p><strong id="resultado"></strong></p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos illo quo facere perspiciatis minus incidunt quasi consequatur? Nisi quos atque porro enim aliquam tempora doloremque ad voluptates? Voluptates, pariatur provident!</p>
+    <p>Libero molestiae eligendi tempore! Et vitae, repudiandae saepe quisquam ducimus sed aspernatur est impedit enim totam cupiditate. Atque molestiae assumenda, nobis dolorum repudiandae, labore accusamus at nesciunt iste quia impedit!</p>
+    <p>Consequatur ipsam quos magnam corporis perspiciatis veritatis rem omnis explicabo quis, fugit rerum vero nulla possimus ut, harum natus facilis voluptatibus assumenda placeat illum. Praesentium reiciendis est corporis quod voluptates.</p>
+    <script>
+        let regEx = /\s+/gi;
+        let contadorPalabras = 0;
+
+        let primerP = document.getElementsByTagName("p")[1].innerHTML;
+        primerP = primerP.replace(/\s+/g, " ");
+        let segundoP = document.getElementsByTagName("p")[2].innerHTML;
+        segundoP = segundoP.replace(/\s+/g, " ");
+        let tercerP = document.getElementsByTagName("p")[3].innerHTML;
+        tercerP = tercerP.replace(/\s+/g, " ");
+
+        let arrayUno = primerP.match(regEx);
+        let arrayDos = segundoP.match(regEx);
+        let arrayTres = tercerP.match(regEx);
+
+        contadorPalabras += arrayUno.length  + arrayDos.length + arrayTres.length + 3;
+
+        document.getElementById("resultado").innerHTML = contadorPalabras;
+    </script>
+</body>
+</html>

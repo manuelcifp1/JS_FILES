@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 21.- Modifica el Código3 añadiendo un color de fondo a cada texto
+     dependiendo del valor del atributo class. Ej: verde para la verdura, rojo para la carne…
+      Pero si el texto es además Remolacha o Tomates, aparecerá en negrita.-->
+    <ul style="width: 100px;">
+        <li class="verdura">Lechuga</li>
+        <li class="verdura">Tomates</li>
+        <li class="carne">Pollo</li>
+        <li class="verdura">Remolacha</li>
+        <li class="carne">Ternera</li>
+        <li class="legumbre">Garbanzos</li>
+        <li class="legumbre">Lentejas</li>
+        <li class="carne">Cerdo</li>
+        <li class="verdura">Berenjena</li>
+        <li class="legumbre">Habas</li>
+    </ul>
+    <script>
+        let alimentos = document.getElementsByTagName("li");
+
+        for(let alimento of alimentos) {
+            if(alimento.getAttribute("class") == "verdura") {
+                alimento.style.backgroundColor = "green";
+                if(alimento.innerHTML == "Remolacha" || alimento.innerHTML == "Tomates") {
+                    alimento.style.fontWeight = "bold";
+                }
+                
+            } else if (alimento.getAttribute("class") == "carne") {
+                alimento.style.backgroundColor = "red"; 
+            } else {
+                alimento.style.backgroundColor = "yellow";
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>
