@@ -15,38 +15,33 @@
             <p>Aquí sólo hay texto</p>
         </section>
         <script>
-            let html = document.getElementsByTagName("html")[0];
-            let atributosHtml = html.attributes;
+            let html = document.getElementsByTagName("html")[0];            
 
             function recorrerDOM(elemento) {
                 if(elemento.childElementCount == 0) {
                     if (elemento.attributes.length == 0) {
                         return console.log(`<${elemento.nodeName}>\n`);
-                    } else {
-                        console.log(`<${elemento.nodeName}>\n`);
+                    } else {                        
                         for (let atributo of elemento.attributes) {
-                            console.log(`${atributo.name}= ${atributo.value}\n`);
+                            console.log(`<${elemento.nodeName}>->${atributo.name}= ${atributo.value}\n`);
                         }
                         return;     
                     }
-                } else {
-                    let indice = 0;
+                } else {                    
                     if (elemento.attributes.length == 0) {
                         console.log(`<${elemento.nodeName}>\n`);
-                        for(let hijo of elemento.children) {
-                            console.log(`<${hijo.nodeName}>\n`);
+                        for(let hijo of elemento.children) {                            
+                            recorrerDOM(hijo);                            
                         } 
-                        return recorrerDOM(hijo.nextElementSibling);  
-                    } else {
-                        console.log(`<${elemento.nodeName}>\n`);
+                          
+                    } else {                        
                         for (let atributo of elemento.attributes) {
-                            console.log(`${atributo.name}= ${atributo.value}\n`);
+                            console.log(`<${elemento.nodeName}>->${atributo.name}= ${atributo.value}\n`);
                         }
-                        for(let hijo of elemento.children) {
-                            console.log(`<${hijo.nodeName}>\n`);
-                        }
-
-                        return recorrerDOM(hijo.nextElementSibling);     
+                        
+                        for(let hijo of elemento.children) {                            
+                            recorrerDOM(hijo);    
+                        }                             
                     }
                 }
             }
