@@ -6,8 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <!--Ejercicio 23.- Basándonos en el Código9, saca por consola el valor del atributo id
-     del padre del hermano del primer nodo hijo de parrafo1.-->
+    <!--Ejercicio 24.- Navegando por el Código9, crea las sentencias JavaScript necesarias para
+     responder a las siguientes cuestiones:-->        
+        
      <section id="s1">
         <h1 id="titulo">Texto del título</h1>
         <p id="parrafo1">Texto del <strong> párrafo1 </strong>completo.</p>
@@ -15,10 +16,46 @@
         <p id="parrafo3">Texto del párrafo3</p>
      </section> 
      <script>
-        let primerNodo = document.getElementById("parrafo1").firstChild;
-        let hermanoPrimerNodo = primerNodo.nextSibling;
-        let padreHermanoPrimerNodo = hermanoPrimerNodo.parentNode;
-        let resultado = padreHermanoPrimerNodo.getAttribute("id");
+        let seccionS1 = document.getElementById("s1");
+
+        //1. ¿Cuántos nodos hijo tiene la sección s1?
+        let numHijosS1 = seccionS1.childNodes.length;
+        console.log("la section s1 tiene " + numHijosS1 + "hijos.");
+
+        //2. ¿Y cuántos elementos?
+        let numElementosS1 = seccionS1.children.length;
+        console.log("la section s1 tiene " + numElementosS1 + " elementos hijos");
+
+        //3. Crea una variable el1 que contenga el primer elemento hijo de s1.
+        let el1 = seccionS1.firstElementChild;        
+
+        //4. ¿Cuál es el nombre del primer elemento hijo de s1?
+        console.log("El nombre del primer elemento hijo de s1 es " + el1.nodeName);
+
+        //5. Obtén el nombre de todos los elementos hijo de s1.        
+        for(let nombre of seccionS1.children) {
+            console.log(`${nombre.nodeName},\n`)
+        }
+
+        //6. Crea una variable llamada elHermano que contenga el elemento hermano siguiente de el1.
+        let elHermano = el1.nextElementSibling;
+
+        //7. Deberías estar en parrafo1, ¿cuántos elementos hijo tiene?
+        let parrafo1 = document.getElementById("parrafo1");
+
+        let elementosHijosP1 = parrafo1.children.length;
+
+        //8. Siguiendo en parrafo1, muestra el nombre y valor de sus elementos.
+        for (hijo of parrafo1.children) {
+            console.log(`Nombre: ${hijo.nodeName},\n
+            Valor: ${hijo.nodeValue}`);
+        }
+        //9. En parrafo1, muestra el nombre y valor de sus nodos.
+        for (hijo of parrafo1.childNodes) {
+            console.log(`Nombre: ${hijo.nodeName},\n
+            Valor: ${hijo.nodeValue}`);
+        }
+
         
      </script>    
     

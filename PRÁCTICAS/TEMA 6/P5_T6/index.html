@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">    
+        <title>Document</title>
+    </head>
+    <body>
+        
+        <section id="s1">
+            <h1>Título</h1>
+            <p>Ejemplo de documento <strong>DOM</strong> Visión en árbol.</p>
+            <h3 id="pruebas"></h3>
+        </section>
+        <section id="s2">
+            <p>Aquí sólo hay texto</p>
+        </section>
+        <script>
+            let html = document.getElementsByTagName("html")[0];
+            let atributosHtml = html.attributes;
+
+            function recorrerDOM(elemento) {
+                if(elemento.childElementCount == 0) {
+                    if (elemento.attributes.length == 0) {
+                        return console.log(`<${elemento.nodeName}>\n`);
+                    } else {
+                        console.log(`<${elemento.nodeName}>\n`);
+                        for (let atributo of elemento.attributes) {
+                            console.log(`${atributo.name}= ${atributo.value}\n`);
+                        }
+                        return;     
+                    }
+                } else {
+                    let indice = 0;
+                    if (elemento.attributes.length == 0) {
+                        console.log(`<${elemento.nodeName}>\n`);
+                        for(let hijo of elemento.children) {
+                            console.log(`<${hijo.nodeName}>\n`);
+                        } 
+                        return recorrerDOM(hijo.nextElementSibling);  
+                    } else {
+                        console.log(`<${elemento.nodeName}>\n`);
+                        for (let atributo of elemento.attributes) {
+                            console.log(`${atributo.name}= ${atributo.value}\n`);
+                        }
+                        for(let hijo of elemento.children) {
+                            console.log(`<${hijo.nodeName}>\n`);
+                        }
+
+                        return recorrerDOM(hijo.nextElementSibling);     
+                    }
+                }
+            }
+
+        recorrerDOM(html);    
+                    
+            
+        </script>    
+    </body>
+</html>
+
+    
