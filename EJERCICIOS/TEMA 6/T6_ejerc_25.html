@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 25.- Siguiendo el Código10, se pide añadir un elemento p como tercer párrafo
+     con el texto “Soy el nuevo tercer párrafo” (con la negrita incluida).-->
+     <main id="principal">
+        <p>Soy el primer párrafo</p>
+        <p>Soy el segundo párrafo</p>
+        <p>Soy el tercer párrafo</p>
+     </main>
+     <script>
+        let principal = document.getElementById("principal");        
+
+        let nuevoTercerParrafo = document.createElement("p");
+        nuevoTercerParrafo.innerHTML = "<strong>Soy el nuevo tercer párrafo</strong>";        
+
+        let antiguoTercer = document.querySelectorAll ("#principal p")[2];        
+
+        principal.insertBefore(nuevoTercerParrafo, antiguoTercer);
+
+
+     </script>    
+</body>
+</html>

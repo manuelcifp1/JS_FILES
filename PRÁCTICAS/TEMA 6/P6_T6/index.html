@@ -18,61 +18,64 @@
         <li>Deleniti repellendus ipsa libero quasi iusto nesciunt ipsum dolorem ratione animi sapiente possimus doloremque explicabo saepe earum magni mollitia voluptate, commodi ipsam aspernatur impedit debitis corrupti voluptas quia corporis. Culpa?</li>
     </ol>
     <script>
-        while (true) {
-            // Solicito el texto al usuario
-            let texto = prompt("Introduce el texto del nuevo párrafo (no vacío):");
 
-            //Si el usuario cancela:
-            if (texto === null) {
-                alert("Operación cancelada.");
-                break;
-            }
-            //Elimino espacios al principio y final del texto del usuario
-            texto = texto.trim();
+        function incluirElementosLi() {
 
-            //Si no ha introducido nada:
-            if (texto === "") {
-                alert("El texto no puede estar vacío. Intenta de nuevo.");
-                continue;
-            }
+            let numero;
 
-            //Solicitar posición al usuario
-            let posicion = prompt("Introduce la posición (1-10):");
+            while(true) {
+                numero = prompt("Introduce un número entre el 1 y el 10");                
 
-            //Si el usuario cancela:
-            if (posicion === null) {
-                alert("Operación cancelada.");
-                break;
+                if (numero === null) {
+                    alert("Has cancelado la aplicación.");
+                    return;
+                }
+
+                numero = Number(numero);
+
+                if (!isNaN(numero) && numero >= 1 && numero <= 10) {
+                    break;
+                }
+                alert("Entrada no válida, inténtalo de nuevo");
             }
 
-            //Con esto se controla que realmente introduzca un número en el rango requerido
+            let texto;
 
-            //Primero convertimos la cadena a número.
-            posicion = Number(posicion);
+            while(true) {
+                texto = prompt("Introduce un texto.");                
 
-            //Validaciones
-            if (isNaN(posicion) || posicion < 1 || posicion > 10) {
-                alert("Debes introducir un número entre 1 y 10. Intenta de nuevo.");
-                continue;
+                if (texto === null) {
+                    alert("Has cancelado la aplicación.");
+                    return;
+                }
+
+                texto = texto.trim();
+
+                if (texto != "" && texto != " ") {
+                    break;
+                }
+                alert("Entrada inválida, inténtalo de nuevo");
             }
 
-            //Crear nuevo elemento <li> y agregar el texto en negrita
-            let nuevoParrafo = document.createElement("li");
-            let textoEnNegrita = document.createElement("strong");
-            textoEnNegrita.textContent = texto;
-            nuevoParrafo.appendChild(textoEnNegrita);
+            let lista = document.getElementsByTagName("ol")[0];
+            let elementosLi = lista.getElementsByTagName("li");
 
-            //Inserta el nuevo párrafo en la posición indicada
-            let lista = document.querySelector("ol");
-            let referencia = lista.children[posicion - 1];
-            if (referencia) {
-                lista.insertBefore(nuevoParrafo, referencia);
+            let nuevoLi = document.createElement("li");
+            nuevoLi.innerHTML = "<strong>" + texto + "</strong>";
+
+            if (numero == 10) {
+               lista.appendChild(nuevoLi);
+
             } else {
-                lista.appendChild(nuevoParrafo); //Agregar al final si la posición excede
-            }
-            
-            break;
+               let posterior = document.querySelectorAll("li")[numero - 1]; 
+               lista.insertBefore(nuevoLi, posterior);
+            }            
+
         }
+
+        incluirElementosLi();        
+
     </script>
+    
 </body>
 </html>
