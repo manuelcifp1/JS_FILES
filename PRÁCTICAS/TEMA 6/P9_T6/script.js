@@ -1,78 +1,73 @@
-// Función que se ejecuta al cargar la página
-window.addEventListener("load", iniciar);
+document.addEventListener("DOMContentLoaded", function () {
+    const mensaje = document.getElementById("mensaje");
+    const visitas = document.getElementById("visitas");
+    const botonAceptar = document.getElementById("aceptarCookies");
+    const botonRechazar = document.getElementById("rechazarCookies");
+    const botonCerrarSesion = document.getElementById("cerrarSesion");
 
-// Función principal que inicia todo
-function iniciar() {
-    const aceptarBtn = document.getElementById("aceptar");
-    const rechazarBtn = document.getElementById("rechazar");
-    const cerrarSesionBtn = document.getElementById("cerrarSesion");
-
-    aceptarBtn.addEventListener("click", permiteCookies);
-    rechazarBtn.addEventListener("click", rechazaCookies);
-    cerrarSesionBtn.addEventListener("click", cerrarSesion);
-
-    // Si ya hay cookie de sesión, no mostramos el aviso
-    if (getCookie("sesionIniciada") === "true") {
-        mostrarVisitas();
-    } else {
-        document.getElementById("confirmacion").classList.remove("oculto");
+    // Función para leer cookies
+    function leerCookie(nombre) {
+        const cookies = document.cookie.split("; ");
+        for (let cookie of cookies) {
+            const [key, value] = cookie.split("=");
+            if (key === nombre) return value;
+        }
+        return null;
     }
-}
 
-// Cuando el usuario acepta el uso de cookies
-function permiteCookies() {
-    // Marcamos que ya se ha aceptado en esta sesión
-    document.cookie = "sesionIniciada=true";
-    
-    // Comprobamos si ya existe cookie de visitas
-    let visitas = parseInt(getCookie("contadorVisitas")) || 0;
-    visitas++;
-    // Guardamos la nueva cantidad de visitas por 1 año
-    document.cookie = "contadorVisitas=" + visitas + "; max-age=" + (60 * 60 * 24 * 365);
-
-    document.getElementById("mensaje").textContent = "Has aceptado el uso de cookies.";
-    document.getElementById("confirmacion").classList.add("oculto");
-    document.getElementById("cerrarSesion").classList.remove("oculto");
-
-    mostrarVisitas();
-}
-
-// Si el usuario rechaza las cookies
-function rechazaCookies() {
-    borrarCookies();
-    document.getElementById("mensaje").textContent = "No has aceptado el uso de cookies. No se registrarán visitas.";
-    document.getElementById("confirmacion").classList.add("oculto");
-}
-
-// Botón para cerrar sesión (borra cookies de sesión y vuelve a preguntar)
-function cerrarSesion() {
-    borrarCookies();
-    location.reload(); // recarga la página para volver a mostrar el cuadro
-}
-
-// Muestra cuántas veces se ha visitado la página
-function mostrarVisitas() {
-    const visitas = getCookie("contadorVisitas");
-    if (visitas) {
-        document.getElementById("visitas").textContent = `Has visitado esta página ${visitas} veces.`;
+    // Función para establecer cookies
+    function establecerCookie(nombre, valor, maxAge) {
+        document.cookie = `${nombre}=${valor}; max-age=${maxAge}`;
     }
-    document.getElementById("cerrarSesion").classList.remove("oculto");
-}
 
-// Función para obtener una cookie concreta
-function getCookie(nombre) {
-    const cookies = document.cookie.split("; ");
-    for (let c of cookies) {
-        const [clave, valor] = c.split("=");
-        if (clave === nombre) {
-            return valor;
+    // Función para eliminar cookies
+    function eliminarCookie(nombre) {
+        document.cookie = `${nombre}=; max-age=0`;
+    }
+
+    // Función para manejar visitas
+    function gestionarVisitas() {
+        const visitasActuales = leerCookie("visitas");
+        if (visitasActuales) {
+            const nuevasVisitas = parseInt(visitasActuales, 10) + 1;
+            establecerCookie("visitas", nuevasVisitas, 60 * 60 * 24 * 365); // 1 año
+            visitas.textContent = `Has visitado esta página ${nuevasVisitas} veces.`;
+        } else {
+            establecerCookie("visitas", 1, 60 * 60 * 24 * 365); // 1 año
+            visitas.textContent = "Esta es tu primera visita.";
         }
     }
-    return null;
-}
 
-// Borra todas las cookies que usamos
-function borrarCookies() {
-    document.cookie = "contadorVisitas=; max-age=0";
-    document.cookie = "sesionIniciada=; max-age=0";
-}
+    // Mostrar mensaje al usuario si no hay cookie de sesión
+    if (!leerCookie("sesionIniciada")) {
+        const aceptado = confirm("Esta página utiliza cookies para registrar tus visitas. ¿Aceptas?");
+        if (aceptado) {
+            establecerCookie("sesionIniciada", "true", 60 * 60 * 24); // 1 día
+            gestionarVisitas(); // Contar visitas solo si acepta cookies
+        } else {
+            eliminarCookie("visitas");
+            mensaje.textContent = "Has rechazado el uso de cookies. No se registrarán tus visitas.";
+        }
+    } else if (leerCookie("sesionIniciada") === "true") {
+        gestionarVisitas(); // Contar visitas solo si la sesión ya está iniciada
+    }
+
+    // Eventos para botones
+    botonAceptar.addEventListener("click", function () {
+        establecerCookie("sesionIniciada", "true", 60 * 60 * 24); // 1 día
+        gestionarVisitas();
+        mensaje.textContent = "Has aceptado el uso de cookies.";
+    });
+
+    botonRechazar.addEventListener("click", function () {
+        eliminarCookie("visitas");
+        eliminarCookie("sesionIniciada");
+        visitas.textContent = "";
+        mensaje.textContent = "Has rechazado el uso de cookies. No se registrarán tus visitas.";
+    });
+
+    botonCerrarSesion.addEventListener("click", function () {
+        eliminarCookie("sesionIniciada");
+        mensaje.textContent = "Has cerrado tu sesión. Reinicia para ver el mensaje de confirmación.";
+    });
+});
