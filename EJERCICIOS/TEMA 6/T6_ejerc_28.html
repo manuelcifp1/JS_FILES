@@ -12,40 +12,51 @@
        pulsemos en grabaCookies. El primer botón almacenará los valores
         introducidos en cookies, y el segundo mostrará el contenido por pantalla
          en un formato adecuado: “Nombre → miNombre, Clave → miClave”.-->
-    <form action="#">
-        <label for="usuario">Usuario:</label>
-        <input type="text" name="usuario" id="usuario">
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-        <br>
-        <button onclick="activaMuestra()">grabaCookies</button>
-        <br>
-        <button disabled onclick="muestraCookies()">muestraCookies</button>
-        <p id="primer"></p>
-        <p id="segun"></p>
-    </form>
-    <script>
-        let mostrador = document.getElementsByTagName("button")[1];
-
-        let usuario = document.getElementsByTagName("input")[0];
-        let password = document.getElementsByTagName("input")[1];
-        
-        function activaMuestra() {
-            mostrador.toggleAttribute("disabled");
-            document.cookie = `usuario=${usuario.getAttribute("value")}`;
-            document.password = `password=${password.getAttribute("value")}`;
-        }
-
-        let primer = document.getElementById("primer");
-        let segun = document.getElementById("segun");
-
-        function muestraCookies() {
-            primer.innerHTML = `Nombre -> ${usuario.getAttribute("value")}`;
-            segun.innerHTML = `Clave -> ${password.getAttribute("password")}`;
-        }
-
-    </script>
+         <form action="#">
+            <label for="usuario">Usuario:</label>
+            <input type="text" name="usuario" id="usuario">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+            <br>
+            <!-- Llamamos a las funciones y les pasamos 'event' para evitar recarga -->
+            <button onclick="activaMuestra(event)">grabaCookies</button>
+            <br>
+            <button disabled onclick="muestraCookies(event)">muestraCookies</button>
+            <p id="primer"></p>
+            <p id="segun"></p>
+        </form>
+    
+        <script>
+            // Referencias
+            let mostrador = document.getElementsByTagName("button")[1];
+            let usuario = document.getElementById("usuario");
+            let password = document.getElementById("password");
+            let primer = document.getElementById("primer");
+            let segun = document.getElementById("segun");
+    
+            function activaMuestra(event) {
+                event.preventDefault(); // Esto evita que el form se recargue
+                // Guardamos las cookies con los valores actuales
+                document.cookie = `usuario=${usuario.value}`;
+                document.cookie = `password=${password.value}`;
+                // Activamos el botón
+                mostrador.toggleAttribute("disabled");
+            }
+    
+            function muestraCookies(event) {
+                event.preventDefault(); // También evitamos recarga aquí
+                // Leemos las cookies
+                let cookies = document.cookie.split("; ").reduce((acc, curr) => {
+                    let [clave, valor] = curr.split("=");
+                    acc[clave] = valor;
+                    return acc;
+                }, {});
+                // Mostramos en pantalla
+                primer.innerHTML = `Nombre → ${cookies.usuario}`;
+                segun.innerHTML = `Clave → ${cookies.password}`;
+            }
+        </script>
     
 </body>
 </html>
