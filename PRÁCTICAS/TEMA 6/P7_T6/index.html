@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="./style.css">
+    <title>Tabla dinámica</title>
 </head>
 <body>
     <input type="text" id="texto">
-    <button>Añadir fila</button>
+    <button onclick="anadirFila()">Añadir fila</button>
     <br>
     <table>
         <thead>
@@ -15,12 +16,12 @@
         </thead>
         <tbody id="bodyTabla">
             <tr id="fila1">
-            <td>Ejemplo de contenido</td>
-            <td><button>Mayúsculas</button></td>
-            <td><button>Formato chachi</button></td>
+                <td>Ejemplo de contenido</td>
+                <td><button onclick="mayusculizar(event)">Mayúsculas</button></td>
+                <td><button onclick="formatearChachimente(event)">Formato chachi</button></td>
             </tr>
+            <script src="./script.js"></script>
         </tbody>
-    </table>
-    
+    </table>    
 </body>
 </html>

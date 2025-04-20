@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 28.- Crea una página con dos campos Usuario y Password.
+     Debajo situarás dos botones: grabaCookies y muestraCookies,
+      este último desactivado. muestraCookies solo se activará cuando
+       pulsemos en grabaCookies. El primer botón almacenará los valores
+        introducidos en cookies, y el segundo mostrará el contenido por pantalla
+         en un formato adecuado: “Nombre → miNombre, Clave → miClave”.-->
+    <form action="#">
+        <label for="usuario">Usuario:</label>
+        <input type="text" name="usuario" id="usuario">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        <br>
+        <button onclick="activaMuestra()">grabaCookies</button>
+        <br>
+        <button disabled onclick="muestraCookies()">muestraCookies</button>
+        <p id="primer"></p>
+        <p id="segun"></p>
+    </form>
+    <script>
+        let mostrador = document.getElementsByTagName("button")[1];
+
+        let usuario = document.getElementsByTagName("input")[0];
+        let password = document.getElementsByTagName("input")[1];
+        
+        function activaMuestra() {
+            mostrador.toggleAttribute("disabled");
+            document.cookie = `usuario=${usuario.getAttribute("value")}`;
+            document.password = `password=${password.getAttribute("value")}`;
+        }
+
+        let primer = document.getElementById("primer");
+        let segun = document.getElementById("segun");
+
+        function muestraCookies() {
+            primer.innerHTML = `Nombre -> ${usuario.getAttribute("value")}`;
+            segun.innerHTML = `Clave -> ${password.getAttribute("password")}`;
+        }
+
+    </script>
+    
+</body>
+</html>
