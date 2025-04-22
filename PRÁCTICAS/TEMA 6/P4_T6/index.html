@@ -11,23 +11,36 @@
     <p>Libero molestiae eligendi tempore! Et vitae, repudiandae saepe quisquam ducimus sed aspernatur est impedit enim totam cupiditate. Atque molestiae assumenda, nobis dolorum repudiandae, labore accusamus at nesciunt iste quia impedit!</p>
     <p>Consequatur ipsam quos magnam corporis perspiciatis veritatis rem omnis explicabo quis, fugit rerum vero nulla possimus ut, harum natus facilis voluptatibus assumenda placeat illum. Praesentium reiciendis est corporis quod voluptates.</p>
     <script>
-        let regEx = /\s+/gi;
+        // Creamos una expresión regular que busca uno o más espacios en blanco, sin distinguir mayúsculas/minúsculas (aunque aquí no es necesario el 'i')
+        let regEx = new RegExp('\\s+', 'gi');
+    
+        // Inicializamos el contador de palabras en cero
         let contadorPalabras = 0;
-
+    
+        // Obtenemos el contenido del primer párrafo (el segundo <p> del documento) y lo limpiamos de espacios múltiples
         let primerP = document.getElementsByTagName("p")[1].innerHTML;
         primerP = primerP.replace(/\s+/g, " ");
+    
+        // Obtenemos el contenido del segundo párrafo (tercer <p>) y lo limpiamos también
         let segundoP = document.getElementsByTagName("p")[2].innerHTML;
         segundoP = segundoP.replace(/\s+/g, " ");
+    
+        // Hacemos lo mismo para el tercer párrafo (cuarto <p>)
         let tercerP = document.getElementsByTagName("p")[3].innerHTML;
         tercerP = tercerP.replace(/\s+/g, " ");
-
+    
+        // Aplicamos la expresión regular a cada párrafo para obtener un array con los espacios (se usará para contar palabras)
         let arrayUno = primerP.match(regEx);
         let arrayDos = segundoP.match(regEx);
         let arrayTres = tercerP.match(regEx);
-
-        contadorPalabras += arrayUno.length  + arrayDos.length + arrayTres.length + 3;
-
+    
+        // Sumamos la cantidad total de espacios en los párrafos, y le sumamos 3 para obtener el número de palabras
+        // Esto se basa en que el número de palabras = número de espacios + 1, por cada párrafo
+        contadorPalabras += arrayUno.length + arrayDos.length + arrayTres.length + 3;
+    
+        // Mostramos el resultado en el elemento con id="resultado"
         document.getElementById("resultado").innerHTML = contadorPalabras;
     </script>
+    
 </body>
 </html>
