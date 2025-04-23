@@ -6,10 +6,10 @@
     <title>Document</title>
     <style>
         .censurado {
-            background-color: red;
-            color: white;
+            background-color: rebeccapurple;
+            color: lime;
             font-weight: bold;
-            animation: blink 1.7s infinite;
+            animation: blink 2s infinite;
         }
 
         @keyframes blink {
@@ -25,29 +25,59 @@
         Eum optio dolore non illum PIS aperiam id deserunt pedo reprehenderit animi, nihil nostrum pis impedit TONTO, saepe exercitationem repellendus! Eaque vero tempore voluptatum obcaecati incidunt nulla porro corrupti cumque.</p>
     <br>
     <button onclick="bloquearContenido()">CENSURAR</button>
+    <style>
+        span {
+            color: lime;
+            background-color: rebeccapurple;
+            font-weight: bold;
+            animation: blink 1s infinite;
+        }
 
-    <script>
-        let censuradas = ["pipi", "pedo", "caca", "pis", "tonto"];
-        let parrafo = document.getElementsByTagName("p")[0].innerHTML;
+        @keyframes blink {
+            0%, 50%, 100% {opacity: 0;}
+            25%, 75% {opacity: 1;}
+            
+        }
+    </style>
 
-        function bloquearContenido() {
-            let huboCensura = false;
-
-            for (let censura of censuradas) {
-                let regEx = new RegExp("\\b" + censura + "\\b", "gi");
-                let antes = parrafo;
-                parrafo = parrafo.replace(regEx, "<span class='censurado'>CENSURADO</span>");
-                if (parrafo !== antes) {
-                    huboCensura = true;
+<script>
+    function bloquearContenido() {
+        let palabrotas = ["pipi", "pedo", "caca", "pis", "tonto"];
+        let body = document.getElementsByTagName("body")[0];
+        let bandera = false;
+    
+        function recorrerNodo(nodo) {
+            for (let hijo of Array.from(nodo.childNodes)) {
+                if (hijo.nodeType === Node.TEXT_NODE) {
+                    let texto = hijo.textContent;
+                    let nuevoHTML = texto;
+                    for (let palabrota of palabrotas) {
+                        let regExp = new RegExp("\\b" + palabrota + "\\b", "gi");
+                        if (regExp.test(nuevoHTML)) {
+                            bandera = true;
+                            nuevoHTML = nuevoHTML.replace(regExp, '<span class="censurado">Contenido bloqueado</span>');
+                        }
+                    }
+    
+                    if (bandera) {
+                        let temp = document.createElement("span");
+                        temp.innerHTML = nuevoHTML;
+                        hijo.parentNode.replaceChild(temp, hijo);
+                    }
+    
+                } else {
+                    recorrerNodo(hijo);
                 }
             }
-
-            if (!huboCensura) {
-                alert("No se han encontrado palabras censurables");
-            }
-
-            document.getElementsByTagName("p")[0].innerHTML = parrafo;
         }
-    </script>    
+    
+        recorrerNodo(body);
+    
+        if (!bandera) {
+            alert("No existen palabras censurables.");
+        }
+    }
+    </script>
+        
 </body>
 </html>
