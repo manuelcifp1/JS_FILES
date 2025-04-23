@@ -29,27 +29,19 @@ function anadirFila() {
     tBody.appendChild(nuevaFila);
 }
 
-//Función que convierte el texto del <td> anterior al botón a mayúsculas o lo devuelve a normal
-function mayusculizar(event) {
-    //Accede a la <td> donde está el botón pulsado
-    let tdBoton = event.target.parentElement;
-
-    //Selecciona la <td> anterior, que contiene el texto a transformar
+function mayusculizar() {
+    let boton = document.activeElement;
+    let tdBoton = boton.parentElement;
     let celdaTexto = tdBoton.previousElementSibling;
 
-    //Cambia el estilo entre 'uppercase' y 'none' para alternar entre mayúsculas y normal
     celdaTexto.style.textTransform = celdaTexto.style.textTransform === "uppercase" ? "none" : "uppercase";
 }
 
-//Función que aplica o quita un estilo "chachi" (rojo de fondo, texto amarillo)
-function formatearChachimente(event) {
-    //Accede a la <td> donde está el botón pulsado
-    let tdBoton = event.target.parentElement;
-
-    //Retrocede dos celdas para llegar al <td> que contiene el texto (la estructura es: texto, botón1, botón2)
+function formatearChachimente() {
+    let boton = document.activeElement;
+    let tdBoton = boton.parentElement;
     let celdaTexto = tdBoton.previousElementSibling.previousElementSibling;
 
-    //Si ya tiene fondo rojo, se limpia el estilo; si no, se aplica el estilo "chachi"
     if (celdaTexto.style.backgroundColor === "red") {
         celdaTexto.style = "";
     } else {
