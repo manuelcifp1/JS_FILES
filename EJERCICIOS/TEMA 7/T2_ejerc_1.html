@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 01.- Recordemos un poco otros temas.
+     Realiza las modificaciones necesarias en el Código02 para obtener el mismo resultado:
+        1. Mediante una función anónima.
+        2. Llamando a una función hazClick()-->
+    <p id="parrafo1">Soy clickeable</p>
+    <p id="parrafo2">Yo no</p> 
+    <script>        
+        let parrafo1 = document.getElementById("parrafo1");
+
+        //Anónima
+        //let alertar = () => alert("Me has hecho click");
+        //parrafo1.onclick = alertar;
+
+        //Llamando a hazClick()
+        function hazClick() {
+            alert("Me has hecho click");
+        }
+/*IMPORTANTE: no se ponen los paréntesis. Aquí pasamos la función como referencia, por lo que no se 
+activará hasta que ocurra el evento. Si la ponemos con paréntesis, tendría una llamada inmediata.  */
+        parrafo1.onclick = hazClick;
+
+
+    </script>     
+</body>
+</html>
