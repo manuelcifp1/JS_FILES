@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--1. Usa el código anterior para crear una página web que muestre por pantalla
+     la posición del cursor del ratón en el navegador y en la pantalla al hacer clic.
+      Emplea como formato:
+        xNav: posiciónX, yNav: posiciónY
+        xPant: posiciónX, yPant: posiciónY
+        Modifica la forma de la ventana para ver la diferencia de valores.
+    2. Una vez comprobado, modifica el ejercicio para que reaccione al movimiento
+     del ratón en lugar de al clic, usa el evento mousemove.-->
+    <p id="parrafo">Aquí aparecerán las coordenadas</p>
+     <script>
+      document.addEventListener("mousemove", function(ev) {
+         document.getElementById("parrafo").innerHTML = "xNav:" + ev.clientX + ", yNav: " + ev.clientY + "<br> xPant: "+ ev.screenX + ", yPant: " + ev.screenY; 
+         
+         });
+          
+     </script>    
+</body>
+</html>
