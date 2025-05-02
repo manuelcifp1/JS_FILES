@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <input type="text" id="nLetrasInput" placeholder="Escribe algo y pulsa Enter">
+  <button id="nLetrasBtn" onclick="alert('Botón activado')">Haz clic o pulsa Enter</button>
+  
+  <script>
+    const input = document.getElementById("nLetrasInput");
+    const boton = document.getElementById("nLetrasBtn");
+  
+    input.addEventListener("keyup", function (e) {
+      if (e.key === "Enter") {
+        boton.click(); // Simula clic en el botón
+      }
+    });
+  </script>
+  
+      
+
+    
+</body>
+</html>

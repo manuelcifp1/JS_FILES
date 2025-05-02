@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 07.- Vas a crear una aplicación web que contenga un elemento campo Input donde,
+     a medida que escribimos, aparezca por consola las teclas que hemos pulsado.
+      El evento que registrará tal pulsación es keydown.-->
+    <form action="" method="get">
+        <label for="letras">Escribe:</label>
+        <input type="text" name="letras" id="input">
+    </form>
+      <script>
+        let input = document.getElementById("input");
+
+        input.addEventListener("keydown", function(e) {
+            console.log(e.key);
+        });
+
+
+      </script>
+    
+</body>
+</html>

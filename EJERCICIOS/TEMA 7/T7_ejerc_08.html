@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Ejercicio 08.- Realiza una aplicación que muestre por consola el botón de ratón pulsado.
+     Para que funcione correctamente tendremos que asignar el evento mousedown a un elemento
+      (el ratón solo podrá actual sobre él) o al mismo objeto document.-->
+      <script>
+        document.addEventListener("mousedown", function(e) {
+            if(e.button == 0) {
+                console.log("Has pulsado el botón principal del ratón.");
+            } else if(e.button == 1) {
+                console.log("Has pulsado el botón central del ratón (en muchos casos, el botón de la rueda).");
+            } else if(e.button == 2) {
+                console.log("Has pulsado el botón secundario del ratón");
+            } else if(e.button == 3) {
+                console.log("Has pulsado el Cuarto botón. En muchos ratones es el de retroceder página.");
+            } else if(e.button == 4){
+                console.log("Has pulsado el Quinto botón. En muchos ratones es el de avanzar página.");
+            }
+        });
+      </script>
+</body>
+</html>
