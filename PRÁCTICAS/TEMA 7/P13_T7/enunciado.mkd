@@ -1,0 +1,7 @@
+➢ Crea una página web con una capa con scroll donde apreciemos un texto de cierto tamaño. Se cerrará gracias a un botón.
+Funcionamiento:
+➢ El usuario se desplazará abajo hasta completar todo el texto, momento en el cual, aparecerá una capa con un botón y el texto “Cerrar”. Al pulsar este botón desaparecerá la capa con el scroll y el botón.
+Indicaciones:
+➢ CSS y JS en ficheros externos.
+➢ La capa ocupará el 50% del ancho y el alto de la ventana.
+➢ Servirá de ayuda la siguiente imagen:
