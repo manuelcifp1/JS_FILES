@@ -1,0 +1,11 @@
+➢ Crea una página web con un recuadro o capa que reaccione a las acciones del ratón.
+Funcionamiento:
+➢ Inicialmente la capa será blanca y solo se verá su borde.
+➢ Al entrar con el ratón se colorea de verde. Al salir desaparecerá el color.
+➢ Al hacer clic encima con el botón principal se colorea de rojo, pero solo mientras el botón principal esté pulsado. Al liberarlo, vuelve al estado anterior.
+➢ Al hacer clic encima con el botón secundario ocurre lo mismo que en el caso anterior, pero mostrándose el color azul (al liberarlo vuelve al estado anterior).
+Indicaciones:
+➢ No se mostrará en ningún caso el menú de contexto, para ello, habrá que anular o “prevenir” (guiñoguiño) su aparición con un evento aparte.
+➢ Códigos CSS y JS aparte en sus ficheros correspondientes.
+Salida:
+➢ Cambios en la capa principal provocados por la acción del ratón.

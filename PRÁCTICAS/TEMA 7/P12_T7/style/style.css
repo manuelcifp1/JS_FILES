@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#recuadro {
+    width: 40vw;
+    aspect-ratio: 1/1;    
+    border: black solid 4px;
+    margin-top: 60px;
+}
