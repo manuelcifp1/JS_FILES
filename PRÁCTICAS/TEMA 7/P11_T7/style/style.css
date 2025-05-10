@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;    
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Horizontal */
+    align-items: center;     /* Vertical */
+}
+
+h1 {
+    color: aqua;
+    margin: 0 auto;
+}

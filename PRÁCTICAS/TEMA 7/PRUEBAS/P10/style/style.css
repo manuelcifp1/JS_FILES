@@ -1,0 +1,18 @@
+body {
+    background-image: url("../imagenes/177482-3840x2160-desktop-4k-clouds-background-image.jpg");
+    background-size: cover;    
+}
+
+
+#goldenAvenger {
+    background-image: url("../imagenes/23407-3-iron-man-flying-file.png");
+    background-size: cover;
+    width: 300px;
+    height:150px;
+}
+
+#coordenadas {
+    color: gold;
+    text-shadow: red 2px 2px 2px;
+    font-size: 50px;
+}

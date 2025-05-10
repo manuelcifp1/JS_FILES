@@ -1,0 +1,10 @@
+➢ Crea una página web que obtengamos una imagen de fondo al pulsar una cierta combinación de teclas.
+Funcionamiento:
+➢ Inicialmente aparecerá un fondo negro con el texto centrado “Pulse Alt+F12 y obtenga una nueva imagen de fondo” y cuando el usuario pulse Alt-F12 una imagen ocupará el fondo completo.
+Indicaciones:
+➢ Ocupará todo el documento, además de comunicarlo con un mensaje.
+➢ La imagen la obtendremos con url desde el servicio gratuito unsplash (https://source.unsplash.com/random).
+➢ Deberemos controlar que se han pulsado a la vez la tecla Alt y la tecla F12.
+➢ Carpeta y fichero JS. Carpeta y fichero CSS.
+Salida:
+➢ Al pulsar la combinación de teclas, en lugar del cuadrado negro veremos la imagen.

@@ -1,0 +1,10 @@
+➢ Consigue que un pequeño cartel de fondo amarillo persiga al cursor
+Funcionamiento:
+➢ El usuario moverá el ratón por la pantalla y una imagen lo seguirá.
+Indicaciones:
+➢ La imagen se incluirá en una capa con posicionamiento de tipo fixed (y por lo tanto inmune al desplazamiento respecto al cursor) y con un tamaño adecuado.
+➢ Las coordenadas del ratón, a medida que la imagen se mueve por la pantalla, aparecerán en la esquina superior izquierda. 
+➢ La imagen se encontrará en una carpeta Imágenes. Código JS y CSS en sus respectivas carpetas y ficheros.
+➢ El punto de conexión del ratón con la imagen será el centro de esta.
+Salida:
+➢ Movimiento de la imagen por el documento del navegador
