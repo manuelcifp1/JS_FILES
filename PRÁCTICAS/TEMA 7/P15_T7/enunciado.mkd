@@ -1,0 +1,9 @@
+➢ Creamos círculos con cada pulsación del botón izquierdo del ratón
+Funcionamiento:
+➢ Al hacer clic en cualquier parte del área de trabajo del navegador aparecerá un círculo de color y radio aleatorio. Se crearán tantos círculos como se desee.
+Indicaciones:
+1. Fichero CSS y JS externo.
+2. Para no pasarnos podemos poner un límite de radio de, por ejemplo, 200px.
+3. El cursor del ratón debe estar posicionado en el centro del círculo.
+
+Pista: Como consejo, hasta que la capa no esté configurada con todos sus parámetros no debería ser añadida al documento.
