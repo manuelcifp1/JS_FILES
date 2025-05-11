@@ -4,11 +4,13 @@ body {
     position: relative;
     cursor: none;
     pointer-events: none;
+    cursor: none;
 }
 
 #ironMan {
     background-image: url("../img/23407-3-iron-man-flying-file.png");
-    background-size: cover;         
+    background-size: cover;
+    cursor: none;         
 }
 
 #coordenadas {
