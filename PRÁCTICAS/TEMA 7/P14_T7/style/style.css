@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+}
+
+.cajaPrincipal {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.caja {
+    border: grey 2px solid;
+    width: 200px;
+    aspect-ratio: 1/1;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    width: 150px;
+    aspect-ratio: 1/1;
+    background-color: blue;    
+}
+
