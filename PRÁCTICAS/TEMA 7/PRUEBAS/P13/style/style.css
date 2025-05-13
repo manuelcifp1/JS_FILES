@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#ventana {
+    width: 600px;
+    height: 500px;
+    overflow: scroll;
+    border: 8px solid lime;
+    background-color: rebeccapurple;
+    color: lime;
+    margin-top: 50px;
+
+}
+
+#boton {
+    width: 600px;
+    height: 30px;
+    background-color: blue;
+    color: orange;
+    margin-top: 30px;
+}
