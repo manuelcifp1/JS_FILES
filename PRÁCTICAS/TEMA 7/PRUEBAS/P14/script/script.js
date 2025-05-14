@@ -1,26 +1,24 @@
 function iniciaListeners() {
     const item = document.getElementById("item");
-
     const cajas = document.querySelectorAll(".caja");
 
-    let origen;
+    let origin;
 
-    //Dos eventos para item.
-
+    //===============================================
     item.addEventListener("dragstart", (e) => {
-        origen = e.target.parentElement;//Selecciona al padre de item
-        e.dataTransfer.setData("text/plain", e.target.id);//Guarda el id para luego.
+        origen = e.target.parentElement;
+        e.dataTransfer.setData("text/plain", e.target.id);
         setTimeout(() => {
             e.target.style.display = "none";
         }, 0);
+
     });
 
     item.addEventListener("dragend", (e) => {
         e.target.style.display = "block";
     });
 
-    //Dos eventos para las cajas.
-
+    //caja=====================================================
     cajas.forEach((caja) => {
         caja.addEventListener("dragover", (e) => {
             e.preventDefault();
@@ -28,29 +26,28 @@ function iniciaListeners() {
 
         caja.addEventListener("drop", (e) => {
             e.preventDefault();
-            const itemId = e.dataTransfer.getData("text/plain");//Recupera id del item.
-            const elemento = document.getElementById(itemId);//Selecciona el elemento.
-
+            let itemId = e.dataTransfer.getData("text/plain");
+            let elemento = document.getElementById(itemId);
             if(caja !== origen) {
                 caja.appendChild(elemento);
             }
         });
     });
 
-    //Dos eventos para el body.
-
+    //body========================================================
     document.body.addEventListener("drop", (e) => {
         e.preventDefault();
-        const itemId = e.dataTransfer.getData("text/plain");
-        const elemento = document.getElementById(itemId);
-
-        if(origen && !e.target.classList.contains("caja")) {
-            origen.appendChild(elemento);
-        }
+        let itemId = e.dataTransfer.getData("text/plain");
+            let elemento = document.getElementById(itemId);
+            if(origen && e.target.classList.contain("caja")) {
+                origen.appendChild(elemento);
+            }
     });
 
     document.body.addEventListener("dragover", (e) => {
         e.preventDefault();
     });
-
 }
+/*ERRORES COMUNES:
+- CUIDADO COMO RELLENAMOS LOS ADDEVENTLISTENERS
+- SIEMPRE ES E.DATATRANSFER, CON LA E DELANTE */

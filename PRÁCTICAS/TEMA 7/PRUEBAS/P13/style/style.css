@@ -9,20 +9,20 @@ body {
 }
 
 #ventana {
-    width: 600px;
-    height: 500px;
+    width: 50vw;
+    height: 40vh;
+    background-color: lime;
+    color:rebeccapurple;
     overflow: scroll;
-    border: 8px solid lime;
-    background-color: rebeccapurple;
-    color: lime;
-    margin-top: 50px;
-
+    padding: 15px;
+    border: rebeccapurple solid 5px;
+    margin-top: 100px;
 }
 
 #boton {
-    width: 600px;
+    width: 50vw;
     height: 30px;
-    background-color: blue;
-    color: orange;
-    margin-top: 30px;
+    background-color: rebeccapurple;
+    color: lime;
+    margin-top: 10px;
 }

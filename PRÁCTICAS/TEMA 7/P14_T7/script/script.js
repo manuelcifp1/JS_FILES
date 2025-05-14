@@ -7,6 +7,7 @@ function iniciaListeners() {
     
 //EVENTOS PARA ITEM (2) =====================================================================================
     //Este evento se dispara al comenzar a arrastrar el cuadrado
+    
     item.addEventListener("dragstart", (e) => {
         origen = e.target.parentElement; //Guarda la caja en la que estaba originalmente
         e.dataTransfer.setData("text/plain", e.target.id); //Guarda el id del elemento para recuperarlo luego

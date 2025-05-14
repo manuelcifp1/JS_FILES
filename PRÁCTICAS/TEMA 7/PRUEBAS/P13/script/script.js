@@ -1,16 +1,17 @@
 const ventana = document.getElementById("ventana");
-
 const boton = document.getElementById("boton");
 
 ventana.addEventListener("scroll", () => {
-    let cierreVentana = ventana.scrollTop + ventana.clientHeight >= ventana.scrollHeight;
-    if(cierreVentana) {
-        boton.removeAttribute("hidden");//REMOVE      
+    let cerrarVentana = ventana.scrollTop + ventana.clientHeight >= ventana.scrollHeight;
+    if(cerrarVentana) {
+        boton.removeAttribute("hidden");
+        boton.addEventListener("click", () => {
+            boton.toggleAttribute("hidden");
+            ventana.toggleAttribute("hidden");
+        });
     }
 });
 
-//ESTO NO VA DENTRO DE LA OTRA
-boton.addEventListener("click", () => {
-    ventana.toggleAttribute("hidden");//TOGGLE
-    boton.toggleAttribute("hidden");//TOGGLE
-});
+/*ERRORES COMUNES:
+- EL EVENTO ES CON "SCROLL"
+- BOTON.REMOVEATTRIBUTE(HIDDEN), LUEGO BOTON Y VENTANA TOGGLEATTRIBUTE(HIDDEN)*/

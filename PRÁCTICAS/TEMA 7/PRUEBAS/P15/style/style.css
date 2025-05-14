@@ -1,10 +1,11 @@
 body {
-    padding: 0;
     margin: 0;
+    padding: 0;
     scroll-behavior: smooth;
 }
 
 div {
-    position: fixed;
+    aspect-ratio: 1/1;
     border-radius: 50%;
+    position: fixed;
 }

@@ -1,11 +1,11 @@
 body {
-    padding: 0;
     margin: 0;
-    scroll-behavior: smooth;        
+    margin: 0;
+    scroll-behavior: smooth;
 }
 
-.circulo {
-    position: fixed;
+div {
     border-radius: 50%;
+    position: fixed;
 }
 

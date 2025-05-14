@@ -1,21 +1,18 @@
 body {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;    
-}
-
-h1, h3 {
-    text-align: center;
+    scroll-behavior: smooth;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 150px;
-
+    justify-content: center;
+    margin-top: 100px;
 }
 
 .cajaPrincipal {
@@ -23,19 +20,21 @@ h1, h3 {
 }
 
 .caja {
-    border: 3px black solid;
+    border: solid black 3px;
     width: 250px;
     aspect-ratio: 1/1;
-    margin: 15px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: 8px;
 }
 
 .item {
-    background-color: lime;
-    border: solid 3px rebeccapurple;
+    background-color: blue;
     width: 220px;
     aspect-ratio: 1/1;
 }
+
+
 

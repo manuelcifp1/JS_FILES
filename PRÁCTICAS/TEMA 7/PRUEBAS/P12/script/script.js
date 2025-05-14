@@ -1,25 +1,30 @@
-let cuadro = document.getElementById("cuadro");
+const cuadrado = document.getElementById("cuadrado");
 
-cuadro.addEventListener("mouseenter", () => {
-    cuadro.style.backgroundColor = "green";
+cuadrado.addEventListener("mouseenter", () => {
+    cuadrado.style.backgroundColor = "green";
 });
 
-cuadro.addEventListener("mouseleave", () => {
-    cuadro.style.backgroundColor = "white";
+cuadrado.addEventListener("mouseleave", () => {
+    cuadrado.style.backgroundColor = "white";
 });
-//Este es el más jodido
-cuadro.addEventListener("mousedown", (e) => {
-    if (e.button === 2) {
-        cuadro.style.backgroundColor = "blue";
+
+cuadrado.addEventListener("mousedown", (e) => {
+    if(e.button === 0) {
+        cuadrado.style.backgroundColor = "red";
     } else {
-        cuadro.style.backgroundColor = "red";
+        cuadrado.style.backgroundColor = "blue";
     }
 });
 
-cuadro.addEventListener("mouseup", () => {
-    cuadro.style.backgroundColor = "green";
+cuadrado.addEventListener("mouseup", () => {
+    cuadrado.style.backgroundColor = "green";
 });
 
-cuadro.addEventListener("contextmenu", (e) => {
-    e.preventDefault();    
-});
+cuadrado.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+})
+
+
+
+/*ERRORES COMUNES:
+- OLVIDAR QUE EL PREVENTDEFAULT VA CON UN CONTEXTMENU.*/

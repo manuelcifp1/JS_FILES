@@ -3,8 +3,7 @@ body {
     background-size: cover;
     position: relative;
     cursor: none;
-    pointer-events: none;
-    cursor: none;
+    pointer-events: none;   
 }
 
 #ironMan {
