@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Ejercicio 02.- Suponiendo que el usuario tenga que introducir un número entre 1 y 20, modifica el código anterior para capturar los siguientes errores:
+✓ El usuario introduce un carácter no numérico.
+✓ El usuario introduce un número mayor que 20.
+✓ El usuario introduce un número menor que 1.-->
+<body>
+    <p>Introduce un número del 1 al 20:</p>
+    <input id="entrada" type="text">
+    <button type="button" onclick="comprueba()">Comprobamos input</button>
+    <p id="parrafo"></p>
+    <script>
+function comprueba() {
+    let m, x;
+    m = document.getElementById("parrafo");  
+    m.innerHTML = "";
+    x = document.getElementById("entrada").value;
+
+    try {
+        if (isNaN(x)) throw "no es un número";
+        if (x > 20) throw "es un número mayor que 20";
+        if (x < 1) throw "es un número menor que 1";
+
+    } catch (miError) {
+        m.innerHTML = `La entrada ${x} ` + miError;
+    }
+}
+</script>   
+</body>
+</html>

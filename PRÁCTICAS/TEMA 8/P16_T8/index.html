@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de visitas</title>
+</head>
+<body>
+    <p id="visitas"></p>
+    <script type="module">
+        import {
+            borrarTodasCookies,
+            obtenerCookie,
+            incrementarVisitas
+
+        } from "./funciones.js";
+        
+       let opcionUsuario = confirm("Esta página usa una cookie para almacenar el número de visitas que hace cada usuarios. Si está conforme, haga click en Aceptar, en caso contrario, haga click en cancelar y no la creará y eliminará las cookies existentes");
+
+       if(opcionUsuario) {
+            incrementarVisitas();            
+
+       } else {
+            borrarTodasCookies();
+       }
+       
+    </script>
+    
+</body>
+</html>

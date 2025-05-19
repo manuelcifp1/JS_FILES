@@ -1,0 +1,22 @@
+➢ Crear una aplicación que nos muestre en el documento web el número de veces que
+hemos entrado en la página.
+Funcionamiento:
+➢ Vamos a hacerlo realista. Avisaremos al usuario, con un cuadro de confirmación,
+que grabamos cookies en la página. Puedes copiar algún texto de Internet:
+➢ Si el usuario no acepta cookies las borramos, mostramos un mensaje acorde y no
+enseñaremos las visitas.
+➢ Este cuadro aparecerá al principio y una vez por sesión.
+Indicaciones:
+➢ En total gestionarás 3 botones: Aceptar, Rechazar/Cancelar, y Cerrar sesión.
+➢ El código relacionado con cada botón será una función en un módulo javascript.
+➢ Todo el código javascript estará en dicho módulo en forma de funciones.
+➢ El código css estará en una hoja de estilos externa.
+Pistas:
+➢ Una cierta cookie incrementará en 1 cada vez que entremos en la página.
+➢ En lugar de expires podrías usar max-age=duración-máxima-en-segundos. Por
+ejemplo: 60*60*24*365 para un año.
+➢ El cuadro de confirmación deberá aparecer una sola vez, al principio de la sesión,
+con lo que nos vendría bien tener una cookie (T/F) que nos indique si ya hemos
+iniciado sesión.
+Salida:
+➢ El número de visitas creciendo cada vez que actualicemos la página.

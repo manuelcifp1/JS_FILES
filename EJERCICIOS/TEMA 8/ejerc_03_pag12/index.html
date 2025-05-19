@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="parrafo"></p>
+    <p id="parrafo2"></p>
+    <script type="module">
+        import {areaCirculo,
+                areaCuadrado,
+                PI_CUADRADO
+        } from "./Matematicas/geometria.js";
+
+        let parrafo = document.getElementById("parrafo");
+        let parrafo2 = document.getElementById("parrafo2");
+
+        parrafo.innerHTML = `${areaCirculo(20)}`;
+        parrafo2.innerHTML = `${areaCuadrado(40)}`;
+
+    </script>
+    
+</body>
+</html>
