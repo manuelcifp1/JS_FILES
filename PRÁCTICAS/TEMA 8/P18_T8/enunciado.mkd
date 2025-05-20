@@ -1,0 +1,14 @@
+➢ Vamos a complementar la práctica15. Creamos círculos con cada pulsación del botón izquierdo del ratón y cuadrados con el botón derecho. Ambos con radio y color aleatorio y creados desde el centro de la forma.
+➢ En caso de emplear una acción de doble clic deberá producirse una excepción y lanzar un error por consola con el mensaje (“Interacción errónea”).
+Funcionamiento:
+➢ Se crearán tantas formas como se desee.
+Indicaciones:
+1. Para no pasarnos podemos poner un límite de radio de, por ejemplo, 200px.
+2. El cursor del ratón debe estar posicionado en el centro del círculo.
+3. Un modo de hacerlo sería creando capas.
+4. Se deberán usar módulos para evitar todo el JS posible en nuestro documento html.
+5. Puedes usar CSS o directamente asignar sus propiedades mediante style.
+6. Hojas de estilo y JS estarán en ficheros externos.
+
+Pista1: Como consejo, hasta que la capa no esté configurada con todos sus parámetros no debería ser añadida al documento.
+Pista2: Los nuevos elementos creados deberían ser referenciados por su clase en lugar de su id.
