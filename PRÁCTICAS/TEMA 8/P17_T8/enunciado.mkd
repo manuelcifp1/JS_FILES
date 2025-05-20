@@ -1,0 +1,10 @@
+➢ Crear una función que reciba como argumento un número de segundos, inicie un temporizador con esos segundos y devuelva una promesa. En pantalla se mostrará un texto cuyo valor dependerá de si se cumple el tiempo o lo interrumpimos con un botón Abortar!!.
+Funcionamiento:
+➢ Una función temporizador(tiempo) recibirá el número de segundos (o milisegundos) por parte del usuario.
+➢ La función no escribirá nada, sino que devolverá una promesa (new Promise()) que, dependiendo de si se cumple hará lo siguiente:
+o En el caso de que la promesa se cumpla, devolverá “Tiempo concluido”. o Si el usuario pulsa un botón Abortar!! se “rechazará” o cancelará la promesa y el temporizador con el mensaje “Acción interrumpida por el usuario”.
+Indicaciones:
+➢ CSS (en el caso de usar estilos) y JS externos.
+➢ Consulta los ejemplos del tema8.
+Salida:
+➢ Mensaje acordado.
