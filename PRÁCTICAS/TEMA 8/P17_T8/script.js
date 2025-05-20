@@ -6,28 +6,27 @@ export function temporizador(tiempo) {
     let promesa = new Promise((resolve, reject) => {
         let n = 0;
         let clickHecho = false;
-
+        let cuentaTiempo;
+        
         boton.addEventListener("click", () => {
                 clickHecho = true;                
-                return clearInterval(cuentaTiempo);
+                clearInterval(cuentaTiempo);
+                reject("Acción interrumpida por el usuario");
             });
 
-        let cuentaTiempo = setInterval(() => {
+        cuentaTiempo = setInterval(() => {
             n++;
-            if(n==tiempo) {
-                resolve("Tiempo concluido");
-                return clearInterval(cuentaTiempo);
-            }            
-
-            if(n<tiempo && clickHecho == true) 
-                reject("Acción interrumpida por el usuario");
+            if(n >= tiempo / 1000) {
+                clearInterval(cuentaTiempo);
+                resolve("Tiempo concluido");               
+            }                           
         }, 1000);        
     });
 
     promesa.then(function(respuesta) {
         mensaje.innerHTML = respuesta;
     }).catch(function(miError) {
-        mensaje.innerHTML = miError.message;
+        mensaje.innerHTML = miError;
     });    
 }
 
