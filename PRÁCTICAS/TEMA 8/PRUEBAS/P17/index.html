@@ -9,13 +9,15 @@
     <p id="mensaje"></p>
     <button id="abortar">ABORTAR!!</button>
     <script type="module">
+
         import * as aborto from "./script.js";
         
         aborto.temporizador(8).then((mensaje) => {
             document.getElementById("mensaje").textContent = mensaje;
         }).catch((error) => {
             document.getElementById("mensaje").textContent = error;
-        })
+        });
+
     </script>
 </body>
 </html>
