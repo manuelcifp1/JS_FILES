@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="visitas"></p>
+    <button id="cerrarSesion">Cerrar sesión</button>
+    <script type="module">
+        import * as cook from "./funciones.js";
+
+        let eleccion = confirm("Grabamos cookies en la página ¿Nos lo permites? Si no lo haces, no las creará y borrará las existentes");
+        if(eleccion) {
+            cook.incrementarVisitas();
+        } else {
+            cook.borrarCookies();
+        }
+        document.getElementById("cerrarSesion").addEventListener("click", cook.cerrarSesion);
+    </script>    
+</body>
+</html>
