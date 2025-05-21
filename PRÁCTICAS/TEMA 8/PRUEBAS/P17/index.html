@@ -3,24 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Práctica 17 T8</title>
+    <title>Document</title>
 </head>
 <body>
     <p id="mensaje"></p>
     <button id="abortar">ABORTAR!!</button>
-    
     <script type="module">
-        //Moduleamos el archivo js.
         import * as aborto from "./script.js";
-
-        //Llamamos a la función con 10 segundos, con las dos opciones then/catch.
-        aborto.temporizador(10).then((mensaje) => {
+        
+        aborto.temporizador(8).then((mensaje) => {
             document.getElementById("mensaje").textContent = mensaje;
         }).catch((error) => {
             document.getElementById("mensaje").textContent = error;
         })
-
     </script>
-        
 </body>
 </html>
