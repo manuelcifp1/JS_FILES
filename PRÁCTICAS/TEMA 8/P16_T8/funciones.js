@@ -1,38 +1,48 @@
-export function borrarTodasCookies() {
+//Función para borrar cookies
+export function borrarCookies() {
+    //Seleccionamos las cookies y las convertimos en array.
     const cookies = document.cookie.split(";");
 
-    for(let i = 0; i < cookies.length; i++) {
-        let cookie = cookies[i];
-        let partes = cookie.split("=");
-        let nombre = partes[0].trim();
-
-        document.cookie = nombre += "=; max-age=0; path=/";
-        alert("Todas las cookies han sido borradas");
+    //Recorremos con un for para primero separar el nombre de cada cookie y luego borrarla usando su nombre, edad y ruta.
+    for (let i = 0; i < cookies.length; i++) {
+    const nombre = cookies[i].split("=")[0].trim();
+    document.cookie = `${nombre}=; max-age=0; path=/`;
     }
 }
 
+//Función para obtener una cookie por su nombre.
 export function obtenerCookie(nombre) {
-      const cookies = document.cookie.split(";");
-
-      for (let i = 0; i < cookies.length; i++) {
+    //Seleccionamos las cookies y las convertimos en array.
+    const cookies = document.cookie.split(";");
+    //Recorremos, separando el nombre (cookies[i]) y si empieza con el parámetro nombre, devuelve el valor de nombre, en caso contrario devuelve null.
+    for (let i = 0; i < cookies.length; i++) {
         const parte = cookies[i].trim();
-        if (parte.startsWith(nombre + "=")) {
-          return parte.split("=")[1];
+        if(parte.startsWith(nombre + "=")) {
+            return parte.split("=")[1];
         }
-      }
-      return null;
+    }
+    return null;
 }
 
+//Función para cerrar sesión.
+export function cerrarSesion() {
+  borrarCookies();//Borra todas las cookies.
+  location.reload();//Recarga la página para "empezar de cero".
+}
+
+//Función para incrementar visitas.
 export function incrementarVisitas() {
-      let visitas = obtenerCookie("visitas");
-
-      if (visitas === null) {
+    //Seleccionamos la cookie visitas.
+    let visitas = obtenerCookie("visitas");
+     //Si no hay visitas, le damos el valor 1.
+    if(visitas === null) {
         visitas = 1;
-      } else {
-        visitas = parseInt(visitas) + 1;
-      }
-
-      document.cookie = "visitas=" + visitas + "; max-age=31536000; path=/"; // dura 1 año
-      document.getElementById("visitas").textContent = "Número de visitas: " + visitas;
+    } else {
+        //En caso contrario, la aumentamos en 1.
+        visitas = Number(visitas) + 1;
+    }
+    //Creamos la cookie con las visitas totales.
+    document.cookie = "visitas=" + visitas + "; max-age=31536000; path=/";
+    //Actualizamos el párrafo con las visitas.
+    document.getElementById("visitas").textContent = "Número de visitas: " + visitas;
 }
-

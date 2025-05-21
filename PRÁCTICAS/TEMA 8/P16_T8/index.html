@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador de visitas</title>
+    <title>Document</title>
 </head>
 <body>
+
+    <!--Párrafo para el número de visitas-->
     <p id="visitas"></p>
+    <!--Botón para cerrar sesión-->
+    <button id="cerrarSesion">Cerrar sesión</button>
+
+    <!--Enlazamos con el archivo funciones-->
     <script type="module">
-        import {
-            borrarTodasCookies,
-            obtenerCookie,
-            incrementarVisitas
+        import * as cook from "./funciones.js";
 
-        } from "./funciones.js";
-        
-       let opcionUsuario = confirm("Esta página usa una cookie para almacenar el número de visitas que hace cada usuarios. Si está conforme, haga click en Aceptar, en caso contrario, haga click en cancelar y no la creará y eliminará las cookies existentes");
+        //Cuadro de confirmación.
+        let eleccion = confirm("Grabamos cookies en la página ¿Nos lo permites? Si no lo haces, no las creará y borrará las existentes");
+        if(eleccion) {
+            cook.incrementarVisitas();
+        } else {
+            cook.borrarCookies();
+        }
 
-       if(opcionUsuario) {
-            incrementarVisitas();            
-
-       } else {
-            borrarTodasCookies();
-       }
-       
-    </script>
-    
+        //Código para cerrar sesión.
+        document.getElementById("cerrarSesion").addEventListener("click", cook.cerrarSesion);
+    </script>    
 </body>
 </html>

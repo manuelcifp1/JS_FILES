@@ -7,7 +7,8 @@
 </head>
 <body>
     <p id="visitas"></p>
-    <button id="cerrarSesion">Cerrar sesión</button>
+    <button id="cerrarSesion">CERRAR SESIÓN</button>
+
     <script type="module">
         import * as cook from "./funciones.js";
 
@@ -17,7 +18,10 @@
         } else {
             cook.borrarCookies();
         }
+
         document.getElementById("cerrarSesion").addEventListener("click", cook.cerrarSesion);
-    </script>    
+
+    </script>
+    
 </body>
 </html>
