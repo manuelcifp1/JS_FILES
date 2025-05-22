@@ -6,7 +6,7 @@ let lado;
 
 //Definimos la función principal.
 export function iniciaListeners() {
-    //Definimos la función aleatoria.
+    //Definimos la función aleatoria. RETURN!!!!!!!
     function random(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
